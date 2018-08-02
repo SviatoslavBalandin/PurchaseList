@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/invite_list_item_style"
+    android:orientation="horizontal"
+    android:paddingStart="10dp">
+
+    <ImageView
+        android:id="@+id/imageInvitationStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center_vertical"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/invite_image" />
+
+    <TextView
+        android:id="@+id/inviteSenderNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginEnd="10dp"
+        android:maxWidth="250dp"
+        android:scrollbars="horizontal"
+        android:singleLine="true"
+        android:text=" from Sviat"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/dateInInvitation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:text="26/03/2018"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+</LinearLayout>

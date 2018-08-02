@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/people_list_item_style">
+
+    <RelativeLayout
+        android:id="@+id/peopleListItemContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="4dp">
+
+        <ImageView
+            android:id="@+id/personImagePeopleListItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/circle_image_shape"
+            android:src="@drawable/people_list_item_icon" />
+
+        <TextView
+            android:id="@+id/personNickNamePeopleListItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
+
+        <CheckBox
+            android:id="@+id/peopleListItemCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:clickable="false"
+            android:enabled="false"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:button="@drawable/custom_checkbox_people_list_item"
+            />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

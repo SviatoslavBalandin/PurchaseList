@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="10dp"
+    android:maxWidth="200dp">
+
+    <RelativeLayout
+        android:id="@+id/messageCover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:id="@+id/messageContentContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/edit_message_text_style"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/chatMessageDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:text="22/03/2018"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/chatMessageContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/chatMessageDate"
+                android:layout_centerInParent="true"
+                android:maxWidth="250dp"
+                android:text="Some text in message I gonna write some long string"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/userNickNameContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/messageCover"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/chat_button_style"
+        android:orientation="horizontal"
+        android:paddingBottom="3dp"
+        android:paddingEnd="3dp"
+        android:paddingStart="3dp"
+        android:paddingTop="3dp">
+
+        <TextView
+            android:id="@+id/currentUserNickNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BIG"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+</RelativeLayout>

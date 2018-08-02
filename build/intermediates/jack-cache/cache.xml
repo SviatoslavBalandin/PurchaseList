@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\user\AppData\Local\Android\Sdk\platforms\android-25\optional\org.apache.http.legacy.jar"
+        revision="25.0.3"
+        sha1="5f0541a4298daa0590b22cfbde43f85e2a675545">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\org.apache.http.legacy-7ca6bedf1a62f92656047ff82095e17a928d85f7.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\8cb802d1fb7f64a50679e8131f025e0a39b8fdaa\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="ed87ccdcb70c17d71ba4e6e4ac16afa62d3c49fb">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-6109e5565a6db4197f855dc3bb59ce9cbddc35b7.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\fe659dd9d318355c7f37f5b1530648f889a67029\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-bf3b4ef2a9807a32ee20b757b00c025d806dcaa4.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\60d1410debce24c13a941829870477e5d9aee493\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-9638ddc762febe02e40837a037d82e55994610be.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\2c1ea6f571b508afb2e115fd0af2f8f2bc9eaeb3\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="19f281a785ca0eb5f6799fc7bf7ca199a9ca1e8b">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-59b7f23ab5a90022a59122fddabb2044f749ebe1.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\a256c5dbecbb8ef7e107dc9390d072418bdb7625\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-d436ef113b41c7237c7100f982f28be649debe04.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\0bd033db5f93490dced46700ba8e9b236bee8b7b\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="43e9789bd3240271265ab30ce1be9f224843f5a8">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-908922cab2cfb1feeb657bb80078fe8d6a056ebb.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\b3e1ca508401a5832b202c24529fa4eb962e6590\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-c104e8013c6cdfa44e9564b12cb2cd85231ab92e.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\25eb4b6bb9c8a7ca02ae3d9a5396c12b859fbfd1\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="e5b429c146094a612134910688d169ec08deeefb">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-b88125e999e1dce79560eb79c5c307a9c45aebb5.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\9e1fad64ca0e9c5f7d73a53e67accc1423e1ee59\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-3fc8ee61064f015a0802e241a5544af7bbfd3dae.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\8a74d1647538c98f7d0f6256286ff40a2aaa2b6c\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-2c0aa6702b2d56e157a2ea4aae7ffa5209b49f3f.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.5.1\bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc\butterknife-annotations-8.5.1.jar"
+        revision="25.0.3"
+        sha1="bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\butterknife-annotations-8.5.1-cebd209641a4fc35be211acddd8da57b1cc215a9.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\809db0a6fdfbacdedc55147896bc30eabbd6b2e5\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-5ec17ab3b8d8a9e8f0bd65b021ce394ebf5c7375.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\10826f213b816bb41a394aa38244443cc19779f9\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="364364bf77b4a71afc5930fc3ae57b3f0eea637c">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-469b26d4f07c6a75cb424dcffa0f1d88a18034ad.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\javax.annotation\jsr250-api\1.0\5025422767732a1ab45d93abfea846513d742dcf\jsr250-api-1.0.jar"
+        revision="25.0.3"
+        sha1="5025422767732a1ab45d93abfea846513d742dcf">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\jsr250-api-1.0-66a05f1f600c728269e107351cc93fa4667cb00b.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\constraint-layout-solver-1.0.2-d6ccd51dfd1448b8c35f9f437887099c5391aeaf.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\910e04f23320973ad5b9d1bd76b13d0c2fcb46e2\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="fc3036436defd3070337b7191c50a136ebca7f8f">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-a7a05b6c385952a29041ebd357582e4445f918a1.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\8de4ae20f92bdbbd4d203158a3e5a5fb16758a71\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-6cd6bf3ca9e82b7eee467b3938de90f59a807f2a.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\a6323002029d1f469845f1e0cce70d56a7a7356e\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="7c24e2e9773fb498e390ce973db382c3ddcf748e">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-6fc9f4e91dbdc721c1c46f5ae4971d606c9d1222.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        revision="25.0.3"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\javax.inject-1-ed056cf491007105d54d8d8bd5fe559657696c95.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\883e87314c1810434d7e2a99b197fe8540f9a352\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="2430e711762a749feb00b3d64858ca4768251b9d">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-00379e166e723331141f3e87848a6ca6d18b1419.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\500a946a036c9be4fd1c1490c5a9f3152a08ee9a\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-2bc516c3bceaf50bf13701e10c8ab271ab7f73d9.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\a54c62372c097c7148e517cb2b6cd70549cf7afb\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="70ffe00aaf049893f59d1dad57bd82992faa38ef">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-bf9ac8bd3f659ef1a073b8919907222e0e0d2500.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\eae5af4502a657980dc9cea01f1fbe27fde1ffc9\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="1b12397bc9f342b29d9e9108978828f99a6da579">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-250c6259e118f18399f9ad9148726a17f79b6970.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.9\75a739e59d7ede2f7f425f369955bdd1c2ac122b\dagger-2.9.jar"
+        revision="25.0.3"
+        sha1="75a739e59d7ede2f7f425f369955bdd1c2ac122b">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\dagger-2.9-55d069a84b9ec17592ba423370eb4109657278a2.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\e68e6ed89339e63ac69eb30d6d235364de60b15e\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-85d1def7d357e109abf30451fc02884026f6dd62.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\support-annotations-25.3.1-5548ccada9aa534b99e5bae3d17100e81aae0ecf.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\AppData\Local\Android\Sdk\platforms\android-25\android.jar"
+        revision="25.0.3"
+        sha1="712a0312fe844a21a1b3812fa960c363a1578984">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\android-d3a405379c2d16bc980a3ae63ec699a0a7665169.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\76aacf8bbf5e46605b52109fcbb51401b5224796\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="e1625e48a836779b5fa141d22e5d05563aaccc9a">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-c530b51daef47dc0ffaf3bafcd9ce15b244a8910.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\fb8f05b4fbc423ffb4ff7ca6c0cdf4197146038e\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="b5b6af36bacf1d812cd3dc45f9dcab9ea471ed91">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-f6e2ab2edc3d205c7bf8b196e998ef5b6e03541c.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\.android\build-cache\55b84d6f37cc22e9469240ae282f757752f6cf0b\output\jars\classes.jar"
+        revision="25.0.3"
+        sha1="8abff83bd0c02bac0580d3db92243119d5ba987c">
+        <dex dex="C:\Users\user\AndroidStudioProjects\PurchaseList\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-a6fc72073ce1bb934b2e1e8232d800abdd1898db.jar" />
+    </item>
+
+</items>

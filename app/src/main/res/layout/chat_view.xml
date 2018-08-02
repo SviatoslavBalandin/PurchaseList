@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chatViewParentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/chat_background_dark"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomMessageSpace"
+            android:layout_alignParentTop="true">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/ChatBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/mainChatToolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#424242"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme" >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/chatViewToolbarContainer">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chatViewToolbarTitle"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true" />
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chatViewToolbarCleanChatHistoryBtn"
+                            android:src="@drawable/chat_view_toolbar_clean_history"
+                            android:background="#424242"
+                            android:layout_toStartOf="@id/chatViewToolbarPermissionsBtn"
+                            android:layout_marginEnd="20dp"
+                            android:layout_centerVertical="true"/>
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chatViewToolbarPermissionsBtn"
+                            android:src="@drawable/chat_view_toolbar_permissions"
+                            android:background="#424242"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"/>
+                    </RelativeLayout>
+                </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.design.widget.CoordinatorLayout
+                android:id="@+id/recyclerViewLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/ChatBarLayout"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/listOfMessages"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    />
+            </android.support.design.widget.CoordinatorLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomMessageSpace"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/editMessageEt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight=".99"
+                android:background="@drawable/edit_message_text_style"
+                android:hint="@string/message"
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLength="300"
+                android:maxLines="8"
+                android:scrollbars="none"
+                android:singleLine="false"
+                android:paddingStart="5dp"
+                android:paddingEnd="3dp"
+                android:paddingBottom="3dp"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnSendMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight=".01"
+                android:background="@drawable/chat_button_style"
+                android:text="@string/send"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/permissionsViewItemContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/permissions_item_style"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:id="@+id/permissionsViewRelativeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingBottom="4dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:id="@+id/userNamePermissionsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <CheckBox
+            android:id="@+id/permissionsViewItemCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:button="@drawable/permissions_item_checkbutton_style"
+            android:clickable="false"
+            android:enabled="false"
+            android:scaleX="1.5"
+            android:scaleY="1.5" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

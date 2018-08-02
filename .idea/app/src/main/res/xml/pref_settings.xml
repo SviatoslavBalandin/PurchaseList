@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/lists">
+
+        <ListPreference
+            android:dialogTitle="@string/font_chang"
+            android:entries="@array/font_array_entries"
+            android:entryValues="@array/font_array_lists_values"
+            android:key="list_font"
+            android:summary="@string/pref_exp_font"
+            android:title="@string/pref_font"
+            />
+        <CheckBoxPreference
+            android:key="lists_show_quantity"
+            android:title="@string/quantity"
+            android:summary="@string/pref_exp_show_quantity_in_list"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/purchases">
+
+        <ListPreference
+            android:dialogTitle="@string/font_chang"
+            android:entries="@array/font_array_entries"
+            android:entryValues="@array/font_array_goods_values"
+            android:key="purch_font"
+            android:title="@string/pref_font"
+            android:summary="@string/pref_exp_purch_font"
+            />
+        <CheckBoxPreference
+            android:key="show_quant"
+            android:title="@string/pref_show_quant"
+            android:summary="@string/pref_exp_show_quant"/>
+        <CheckBoxPreference
+            android:key="show_price"
+            android:title="@string/pref_show_price"
+            android:summary="@string/pref_exp_price"/>
+
+        <CheckBoxPreference
+            android:key="markable"
+            android:title="@string/pref_markable"
+            android:summary="@string/pref_exp_markable"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/chat">
+    //TODO: write chat customs here
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/accountMainViewCoordinatorLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/peopleBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/peopleToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#FF5722">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/peopleListToolBarContainer">
+                    <android.support.v7.widget.SearchView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/peopleListSearchView"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignEnd="@id/tbPeopleNumberLimit"
+                        android:layout_marginEnd="40dp"
+                        android:background="@drawable/people_list_item_style"/>
+
+                    <TextView
+                        android:id="@+id/tbPeopleNumberLimit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/people_view_start_limit_view"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.design.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/peopleBarLayout">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/peopleRecyclerList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabInvitePersons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:src="@drawable/person_add_two"
+                app:backgroundTint="#FF5722"
+                app:fabSize="normal"
+                app:layout_anchor="@id/peopleRecyclerList"
+                app:layout_anchorGravity="bottom|right|end"
+                app:layout_behavior="ru.startandroid.purchaselist.views.helpers.ScrollDisappearFABBehavior"
+                app:rippleColor="@android:color/holo_red_dark" />
+        </android.support.design.widget.CoordinatorLayout>
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
