@@ -8,5 +8,6 @@ import ru.startandroid.purchaselist.views.AuthenticationFragment;
  */
 @Subcomponent(modules = {AuthModule.class})
 public interface AuthComponent {
+
     void inject(AuthenticationFragment fragment);
 }

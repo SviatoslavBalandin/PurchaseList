@@ -1,5 +1,6 @@
 package ru.startandroid.purchaselist.chat.presenters;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +21,7 @@ import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.chat.model.Invitation;
 import ru.startandroid.purchaselist.chat.view.PeopleViewInterface;
 import ru.startandroid.purchaselist.model.UserInformation;
+import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFactory;
 
 /**
  * Created by user on 26/03/2018.
@@ -42,13 +44,15 @@ public class PersonListPresenterImpl implements PersonListPresenter {
         sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm a");
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void fetchPersons(boolean onCreateView) {
         usersReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
-                    Observable.fromIterable(dataSnapshot.getChildren())
+
+                    FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                             .map(child -> child.getValue(UserInformation.class))
                             .filter(user -> !user.getId().equals(auth.getCurrentUser().getUid()))
                             .toList()

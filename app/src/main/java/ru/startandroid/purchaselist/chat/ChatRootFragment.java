@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.ParcelUuid;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -35,7 +34,6 @@ public class ChatRootFragment extends Fragment implements ChatRootFragmentInterf
 
     private FragmentManager fragmentManager;
     private android.app.FragmentManager mainFragmentManager;
-    private ChatFragmentPagerAdapter pagerAdapter;
     private MainViewInterface mainView;
     private GoodsList parentReference;
 
@@ -56,8 +54,7 @@ public class ChatRootFragment extends Fragment implements ChatRootFragmentInterf
         mainView = (MainViewInterface) getActivity();
         ButterKnife.bind(this, v);
         mainFragmentManager = getFragmentManager();
-        pagerAdapter = new ChatFragmentPagerAdapter(fragmentManager, this, checkIsOwner() );
-        viewPager.setAdapter(pagerAdapter);
+        viewPager.setAdapter(new ChatFragmentPagerAdapter(fragmentManager, this, checkIsOwner()));
         tabLayout.setupWithViewPager(viewPager);
     return v;
     }

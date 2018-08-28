@@ -1,10 +1,8 @@
 package ru.startandroid.purchaselist.chat.view;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
@@ -14,11 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -34,7 +29,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.startandroid.purchaselist.MyApp;
 import ru.startandroid.purchaselist.R;
-import ru.startandroid.purchaselist.chat.ChatRootFragment;
 import ru.startandroid.purchaselist.chat.helpers.ChatListViewAdapter;
 import ru.startandroid.purchaselist.chat.model.Message;
 import ru.startandroid.purchaselist.chat.presenters.ChatPresenter;
@@ -174,9 +168,7 @@ public class ChatView extends Fragment implements ChatViewInterface, AlarmOnClic
     }
 
     private boolean switchSendButtonEnabling(){
-        if(!TextUtils.isEmpty(chatRootFragment.getParentList().getConnectionId()) && !TextUtils.isEmpty(editMessageEt.getText().toString()))
-            return true;
-        return false;
+        return !TextUtils.isEmpty(chatRootFragment.getParentList().getConnectionId()) && !TextUtils.isEmpty(editMessageEt.getText().toString());
     }
     private void checkWallpaperSettings(CoordinatorLayout parentLayout){
         StringBuilder resource = new StringBuilder();

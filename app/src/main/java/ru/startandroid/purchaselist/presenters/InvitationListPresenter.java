@@ -7,7 +7,8 @@ import ru.startandroid.purchaselist.chat.model.Invitation;
  */
 
 public interface InvitationListPresenter {
-    void fetchInvitation();
+
+    void fetchInvitations();
     void sendAnswer(Invitation invitation, boolean answer);
     void deleteInvitation(Invitation invitation);
     void deleteAllInvitations();

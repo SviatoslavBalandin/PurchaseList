@@ -1,5 +1,7 @@
 package ru.startandroid.purchaselist.chat.presenters;
 
+import android.annotation.SuppressLint;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,6 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.chat.view.PermissionViewInterface;
 import ru.startandroid.purchaselist.model.UserInformation;
+import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFactory;
 
 /**
  * Created by user on 10/04/2018.
@@ -33,7 +36,7 @@ public class PermissionPresenterImpl implements PermissionPresenter{
             guestListReference = database.getReference().child("Connections").child(permissionView.getConnectionId()).child("guestsList");
         usersReference = database.getReference().child("Users");
     }
-
+    @SuppressLint("CheckResult")
     @Override
     public void fetchDialogGuests() {
         guestListReference.addValueEventListener(new ValueEventListener() {
@@ -41,7 +44,7 @@ public class PermissionPresenterImpl implements PermissionPresenter{
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if(dataSnapshot.hasChildren()) {
-                    Observable.fromIterable(dataSnapshot.getChildren())
+                    FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                             .map(child -> child.getValue(String.class))
                             .toList()
                             .subscribeOn(Schedulers.io())
@@ -89,13 +92,14 @@ public class PermissionPresenterImpl implements PermissionPresenter{
         return false;
     }
 
+    @SuppressLint("CheckResult")
     private void getUsersFromDataBase(List<String> usersIds){
         List<UserInformation> dialogUsers = new ArrayList<>();
         usersReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChildren()) {
-                    Observable.fromIterable(dataSnapshot.getChildren())
+                    FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                             .map(child -> child.getValue(UserInformation.class))
                             .toList()
                             .subscribeOn(Schedulers.io())

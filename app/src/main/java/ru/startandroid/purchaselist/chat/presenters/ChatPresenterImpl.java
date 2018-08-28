@@ -1,5 +1,6 @@
 package ru.startandroid.purchaselist.chat.presenters;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,6 +18,7 @@ import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.chat.model.Message;
 import ru.startandroid.purchaselist.chat.view.ChatViewInterface;
+import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFactory;
 
 /**
  * Created by user on 22/03/2018.
@@ -60,6 +62,7 @@ public class ChatPresenterImpl implements ChatPresenter {
         chatView.refreshList();
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void fetchAllMessages() {
         if(!TextUtils.isEmpty(chatView.getParentList().getConnectionId())){
@@ -67,7 +70,7 @@ public class ChatPresenterImpl implements ChatPresenter {
                @Override
                public void onDataChange(DataSnapshot dataSnapshot) {
                    if(dataSnapshot.hasChildren()) {
-                       Observable.fromIterable(dataSnapshot.getChildren())
+                       FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                                .map(snapshot -> snapshot.getValue(Message.class))
                                .toList()
                                .subscribeOn(Schedulers.io())

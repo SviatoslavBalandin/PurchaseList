@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
         resolveDependencies();
         fragManager = getFragmentManager();
         toolbar.setNavigationIcon(R.drawable.ic_acc_nav3);
-//        toolbar.setTitleTextColor(getResources().getColor(R.color.white, null));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> showDrawer());

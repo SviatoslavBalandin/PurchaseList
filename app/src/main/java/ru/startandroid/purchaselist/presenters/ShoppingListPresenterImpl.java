@@ -1,5 +1,6 @@
 package ru.startandroid.purchaselist.presenters;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -12,8 +13,10 @@ import com.google.firebase.database.ValueEventListener;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
+import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.model.Purchase;
+import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFactory;
 import ru.startandroid.purchaselist.views.ShoppingListView;
 
 /**
@@ -62,27 +65,20 @@ public class ShoppingListPresenterImpl implements ShoppingListPresenter {
         goodsListReference.child(purchaseId).child("checked").setValue(isChecked);
 
         goodsListReference.child(purchaseId).addValueEventListener(new ValueEventListener() {
+            @SuppressLint("CheckResult")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                try {
 
-                    Purchase purchase = dataSnapshot.getValue(Purchase.class);
-                    Observable.fromIterable(shoppingListView.getGoodsList())
-                            .filter(product -> product != null)
-                            .filter(purchasePredicate -> purchasePredicate.getId().equals(purchaseId))
-                            .subscribe((Purchase purchasePredicate) ->{
-                                try {
-                                    shoppingListView.getGoodsList().set(shoppingListView.getGoodsList().indexOf(purchasePredicate), purchase);
-                                }catch (OnErrorNotImplementedException e){
-                                    //skip
-                                }
-                    });
-                     goodsListReference.removeEventListener(this);
-                }catch (OnErrorNotImplementedException | NoSuchMethodError e) {
-                    e.fillInStackTrace();
-                } catch (Exception e){
-                    //nothing to show
+                Purchase purchase = dataSnapshot.getValue(Purchase.class);
+
+                for (Purchase listPurchase : shoppingListView.getGoodsList()){
+
+                    if(listPurchase.getId().equals(purchaseId)){
+                        shoppingListView.getGoodsList().set(shoppingListView.getGoodsList().indexOf(listPurchase), purchase);
+                    }
                 }
+                goodsListReference.removeEventListener(this);
+
             }
              @Override
              public void onCancelled(DatabaseError databaseError) {
@@ -101,10 +97,11 @@ public class ShoppingListPresenterImpl implements ShoppingListPresenter {
     public void fetchProducts() {
 
         valueEventListener = new ValueEventListener() {
+            @SuppressLint("CheckResult")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
-                    Observable.fromIterable(dataSnapshot.getChildren())
+                    FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                             .map(child -> child.getValue(Purchase.class))
                             .toList()
                             .subscribeOn(Schedulers.io())

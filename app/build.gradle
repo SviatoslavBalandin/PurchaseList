@@ -48,6 +48,8 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     //picasso
     compile 'com.squareup.picasso:picasso:2.4.0'
+
+
     compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.1.2'
     compile 'com.android.support:design:25.4.0'

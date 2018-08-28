@@ -1,5 +1,6 @@
 package ru.startandroid.purchaselist.presenters;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -12,17 +13,19 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.chat.model.Answer;
 import ru.startandroid.purchaselist.chat.model.Connection;
 import ru.startandroid.purchaselist.model.GoodsList;
 import ru.startandroid.purchaselist.model.UserInformation;
+import ru.startandroid.purchaselist.presenters.technical_staff.DateComparator;
+import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFactory;
 import ru.startandroid.purchaselist.views.AccountScreenView;
 
 /**
@@ -38,7 +41,7 @@ public class AccountPresenterImpl implements AccountPresenter{
     private DatabaseReference answerReference;
     private DatabaseReference connectionReference;
     private String today;
-    private  String currentUserId;
+    private String currentUserId;
     private ValueEventListener addForeignListEventListener;
     private ValueEventListener fetchListsEventListener;
     private ValueEventListener answerListener;
@@ -89,21 +92,18 @@ public class AccountPresenterImpl implements AccountPresenter{
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     try {
-                        Observable.just(dataSnapshot.getValue(Connection.class))
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(connection -> {
-                                    for(String guestId : connection.getGuestsList()){
-                                        if(guestId.equals(currentUserId)){
-                                            connection.getGuestsList().remove(guestId);
-                                            connectionReference.child(trashList.getConnectionId()).setValue(connection);
-                                            if(connection.getGuestsList().size() == 0){
-                                                connectionReference.child(connection.getId()).removeValue();
-                                            }
-                                            break;
-                                        }
+                        Connection connection = dataSnapshot.getValue(Connection.class);
+
+                        for(String guestId : connection.getGuestsList()){
+                            if(guestId.equals(currentUserId)){
+                                connection.getGuestsList().remove(guestId);
+                                connectionReference.child(trashList.getConnectionId()).setValue(connection);
+                                if(connection.getGuestsList().size() == 0){
+                                    connectionReference.child(connection.getId()).removeValue();
                                     }
-                                });
+                                    break;
+                                }
+                        }
                     }catch (NullPointerException e){
                         e.fillInStackTrace();
                     }
@@ -139,21 +139,20 @@ public class AccountPresenterImpl implements AccountPresenter{
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     try {
-                        Observable.just(dataSnapshot.getValue(Connection.class))
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(connection -> {
-                                    for(String guestId : connection.getGuestsList()){
-                                        if(guestId.equals(currentUserId)){
-                                            connection.getGuestsList().remove(guestId);
-                                            connectionReference.child(trashList.getConnectionId()).setValue(connection);
-                                            if(connection.getGuestsList().size() == 0){
-                                                connectionReference.child(connection.getId()).removeValue();
-                                            }
-                                            break;
-                                        }
+
+                        Connection connection = dataSnapshot.getValue(Connection.class);
+
+                        for(String guestId : connection.getGuestsList()){
+                            if(guestId.equals(currentUserId)){
+                                connection.getGuestsList().remove(guestId);
+                                connectionReference.child(trashList.getConnectionId()).setValue(connection);
+                                if(connection.getGuestsList().size() == 0){
+                                    connectionReference.child(connection.getId()).removeValue();
                                     }
-                                });
+                                    break;
+                                }
+                        }
+
                     }catch (NullPointerException e){
                         e.fillInStackTrace();
                     }
@@ -179,28 +178,30 @@ public class AccountPresenterImpl implements AccountPresenter{
 
     @Override
     public void fetchLists() {
-      fetchListsEventListener = new ValueEventListener() {
+        fetchListsEventListener = new ValueEventListener() {
+            @SuppressLint("CheckResult")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 try {
                     if (dataSnapshot.hasChildren()) {
-                        Observable.fromIterable(dataSnapshot.getChildren())
+                        FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                                 .map(dataSnapshot1 -> dataSnapshot1.getValue(GoodsList.class))
                                 .filter(list -> list != null)
                                 .filter(list -> list.getOwner().getId().equals(currentUserId))
                                 .toList()
-                                .map(list -> flipList(list))
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(list -> {
-                                    accountScreenView.getMainList().clear();
-                                    accountScreenView.getMainList().addAll(0, list);
-                                    checkAndAddList(accountScreenView.getMainList());
-                                    accountScreenView.showProducts();
-                                });
+                                .subscribe(
+                                        list -> {
+                                            accountScreenView.getMainList().clear();
+                                            accountScreenView.getMainList().addAll(0, list);
+                                            checkAndAddList(accountScreenView.getMainList());
+
+                                        });
+
                     }
                 }catch (Exception e){
-                    return;
+                    //complete solution
                 }
             }
 
@@ -214,10 +215,11 @@ public class AccountPresenterImpl implements AccountPresenter{
     }
     private void checkAndAddList(List<GoodsList> goodsLists){
      addForeignListEventListener = new ValueEventListener() {
+            @SuppressLint("CheckResult")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChildren()) {
-                    Observable.fromIterable(dataSnapshot.getChildren())
+                    FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                             .map(dataSnapshot1 -> dataSnapshot1.getValue(Connection.class))
                             .toList()
                             .subscribeOn(Schedulers.io())
@@ -242,10 +244,11 @@ public class AccountPresenterImpl implements AccountPresenter{
                                                         if(!alreadyPresent)
                                                             goodsLists.add(0, goodsList);
 
+
                                                         accountScreenView.refreshList();
                                                         shoppingListsReference.child(connection.getListId()).removeEventListener(this);
                                                     }catch (NullPointerException e){
-                                                        return;
+                                                       //
                                                     }
                                                 }
 
@@ -258,6 +261,7 @@ public class AccountPresenterImpl implements AccountPresenter{
                                         }
                                     }
                                 }
+
                             });
                 }
             }
@@ -270,22 +274,30 @@ public class AccountPresenterImpl implements AccountPresenter{
 
         connectionReference.addValueEventListener(addForeignListEventListener);
     }
+    private void addingFinished(ArrayList<GoodsList> oldList){
+
+        accountScreenView.showProducts();
+
+    }
     private List<GoodsList> flipList(List<GoodsList> oldList){
         List<GoodsList> newList = new ArrayList<>();
         for(int i = oldList.size() - 1; i >= 0; i-- ){
             newList.add(oldList.get(i));
         }
+        Collections.sort(newList, new DateComparator());
+
         return newList;
     }
 
     @Override
     public void reactOnAnswer() {
         answerListener = new ValueEventListener() {
+            @SuppressLint("CheckResult")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 try {
                     if (dataSnapshot.hasChildren()) {
-                        Observable.fromIterable(dataSnapshot.getChildren())
+                        FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                                 .map(dataSnapshot1 -> dataSnapshot1.getValue(Answer.class))
                                 .filter(Answer::getContent)
                                 .toList()
@@ -293,7 +305,7 @@ public class AccountPresenterImpl implements AccountPresenter{
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(list -> createConnections(list));
                     }
-                }catch (Exception e){
+                }catch (Exception e){   
                     //nothing
                 }
             }
@@ -324,6 +336,7 @@ public class AccountPresenterImpl implements AccountPresenter{
 
     private void createConnections(List<Answer> answerList){
         connectionReference.addValueEventListener( new ValueEventListener() {
+            @SuppressLint("CheckResult")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -338,7 +351,7 @@ public class AccountPresenterImpl implements AccountPresenter{
                         connectionList.add(uploadConnection(answer));
                         connectionsStorageAreEmpty = false;
                     }else {
-                        Observable.fromIterable(dataSnapshot.getChildren())
+                        FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                                 .map(dataSnapshot1 -> dataSnapshot1.getValue(Connection.class))
                                 .toList()
                                 .subscribeOn(Schedulers.io())

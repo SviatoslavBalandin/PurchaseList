@@ -10,7 +10,7 @@ import javax.inject.Inject;
 
 public class MainActivityPresenterImpl implements MainActivityPresenter{
 
-    FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
 
     @Inject
     public MainActivityPresenterImpl(FirebaseAuth firebaseAuth){

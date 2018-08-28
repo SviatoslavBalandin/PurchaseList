@@ -1,5 +1,6 @@
 package ru.startandroid.purchaselist.presenters;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,6 +16,7 @@ import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.chat.model.Answer;
 import ru.startandroid.purchaselist.chat.model.Invitation;
 import ru.startandroid.purchaselist.model.Purchase;
+import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFactory;
 import ru.startandroid.purchaselist.views.InvitationListViewInterface;
 
 /**
@@ -23,7 +25,7 @@ import ru.startandroid.purchaselist.views.InvitationListViewInterface;
 
 public class InvitationListPresenterImpl implements InvitationListPresenter {
     private FirebaseDatabase database;
-    private  FirebaseAuth auth;
+    private FirebaseAuth auth;
     private InvitationListViewInterface invitationListView;
     private DatabaseReference invitationsReference;
 
@@ -36,12 +38,13 @@ public InvitationListPresenterImpl(FirebaseDatabase database, FirebaseAuth auth,
     invitationsReference = database.getReference().child(USERS_KEY).child(auth.getCurrentUser().getUid()).child("invitations");
 }
     @Override
-    public void fetchInvitation() {
+    public void fetchInvitations() {
         invitationsReference.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("CheckResult")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
-                    Observable.fromIterable(dataSnapshot.getChildren())
+                    FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                             .map(child -> child.getValue(Invitation.class))
                             .toList()
                             .subscribeOn(Schedulers.io())

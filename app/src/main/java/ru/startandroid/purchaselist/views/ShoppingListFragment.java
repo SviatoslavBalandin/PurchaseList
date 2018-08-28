@@ -219,10 +219,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListView {
 
     @Override
     public boolean doesHaveConnection() {
-        if(parentReference.getConnectionId().equals(""))
-            return false;
-
-        return true;
+        return !parentReference.getConnectionId().equals("");
     }
 
     private Toolbar.OnMenuItemClickListener initMenuItemClickListener(){
@@ -312,6 +309,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListView {
         }));
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void attachLongClickListenerToAmount(TextView amount){
         amount.setOnLongClickListener(v -> {
        final InfoTotal infoTotal = new InfoTotal(footerContent.getText().toString());

@@ -1,11 +1,10 @@
 package ru.startandroid.purchaselist.di;
 
-import javax.inject.Singleton;
-
 import dagger.Component;
+import ru.startandroid.purchaselist.di.annotations.PerApp;
 import ru.startandroid.purchaselist.di.fireBaseModule.FirebaseModule;
 
-@Singleton
+@PerApp
 @Component(modules = {FirebaseModule.class})
 public interface AppComponent {
 

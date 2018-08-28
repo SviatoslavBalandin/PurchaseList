@@ -16,6 +16,7 @@ public class ChatFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     private ChatRootFragmentInterface chatRootFragment;
     private int count;
+
     public ChatFragmentPagerAdapter(FragmentManager fragmentManager, ChatRootFragmentInterface chatRootFragment, int count) {
         super(fragmentManager);
         this.chatRootFragment = chatRootFragment;

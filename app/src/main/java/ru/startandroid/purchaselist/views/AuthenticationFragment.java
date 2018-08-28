@@ -35,6 +35,7 @@ public class AuthenticationFragment extends Fragment implements ScreenView {
     @BindView(R.id.emailAddress) EditText etEmailAddress;
     @BindView(R.id.password) EditText etPassword;
     @BindView(R.id.etUserName) EditText etUserName;
+
     private MainViewInterface mainView;
 
     @Nullable

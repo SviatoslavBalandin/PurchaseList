@@ -1,10 +1,8 @@
 package ru.startandroid.purchaselist.views;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +26,6 @@ import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.di.AccountMainListModule;
 import ru.startandroid.purchaselist.model.GoodsList;
 import ru.startandroid.purchaselist.presenters.AccountPresenter;
-import ru.startandroid.purchaselist.presenters.AccountPresenterImpl;
 import ru.startandroid.purchaselist.views.helpers.AlarmDialog;
 import ru.startandroid.purchaselist.views.helpers.AlarmOnClickListener;
 import ru.startandroid.purchaselist.views.helpers.ClickListener;
