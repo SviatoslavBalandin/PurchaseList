@@ -192,16 +192,10 @@ public class AccountPresenterImpl implements AccountPresenter{
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(
-                                        list -> {
-                                            accountScreenView.getMainList().clear();
-                                            accountScreenView.getMainList().addAll(0, list);
-                                            checkAndAddList(accountScreenView.getMainList());
-
-                                        });
-
+                                        list -> checkAndAddList(list));
                     }
                 }catch (Exception e){
-                    //complete solution
+                    //
                 }
             }
 
@@ -244,8 +238,9 @@ public class AccountPresenterImpl implements AccountPresenter{
                                                         if(!alreadyPresent)
                                                             goodsLists.add(0, goodsList);
 
+                                                        //last preparing and saving in main view list
+                                                        addingFinished(goodsLists);
 
-                                                        accountScreenView.refreshList();
                                                         shoppingListsReference.child(connection.getListId()).removeEventListener(this);
                                                     }catch (NullPointerException e){
                                                        //
@@ -261,7 +256,6 @@ public class AccountPresenterImpl implements AccountPresenter{
                                         }
                                     }
                                 }
-
                             });
                 }
             }
@@ -274,19 +268,21 @@ public class AccountPresenterImpl implements AccountPresenter{
 
         connectionReference.addValueEventListener(addForeignListEventListener);
     }
-    private void addingFinished(ArrayList<GoodsList> oldList){
-
+    private void addingFinished(List<GoodsList> oldList){
+        flipList(oldList);
+        accountScreenView.getMainList().clear();
+        accountScreenView.getMainList().addAll(0, oldList);
         accountScreenView.showProducts();
-
+        accountScreenView.refreshList();
     }
-    private List<GoodsList> flipList(List<GoodsList> oldList){
+    private void flipList(List<GoodsList> oldList){
         List<GoodsList> newList = new ArrayList<>();
         for(int i = oldList.size() - 1; i >= 0; i-- ){
             newList.add(oldList.get(i));
         }
-        Collections.sort(newList, new DateComparator());
-
-        return newList;
+        oldList.clear();
+        oldList.addAll(newList);
+        Collections.sort(oldList, new DateComparator());
     }
 
     @Override
