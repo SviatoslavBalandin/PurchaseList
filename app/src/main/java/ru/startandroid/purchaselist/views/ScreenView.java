@@ -5,6 +5,5 @@ package ru.startandroid.purchaselist.views;
  */
 
 public interface ScreenView {
-    void showReport(String message);
     void showErrorMessage(String key);
 }

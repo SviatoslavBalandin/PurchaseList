@@ -55,18 +55,14 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> showDrawer());
         mainNavigationDrawerView.setNavigationItemSelectedListener(getNavigationItemSelectedListener());
-    }
-    private void resolveDependencies(){
-        MyApp.getAppComponent().createMainComponent(new MainActivityModule()).inject(this);
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
         if(presenter.accountGateSwitch()){
             openAccountView(true);
         }else
             openEmailPasswordView();
+    }
+    private void resolveDependencies(){
+        MyApp.getAppComponent().createMainComponent(new MainActivityModule()).inject(this);
     }
 
     @Override

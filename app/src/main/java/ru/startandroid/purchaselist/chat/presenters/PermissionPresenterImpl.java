@@ -9,6 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -59,18 +60,21 @@ public class PermissionPresenterImpl implements PermissionPresenter{
             }
         });
     }
-
+    //TODO:  fix concurrent exception
     @Override
-    public void deleteDialogGuests(List<UserInformation> fellows) {
+    public void deleteDialogGuests(List<UserInformation> uselessGuests) {
         List<String> usersIds = new ArrayList<>();
-        for(UserInformation fellow : fellows){
-            for(UserInformation guest : permissionView.getDialogGuestsList()){
+        Iterator<UserInformation> it = permissionView.getDialogGuestsList().iterator();
+        for(UserInformation fellow : uselessGuests){
+            while (it.hasNext()){
+                UserInformation guest = it.next();
                 if(fellow.equals(guest)) {
-                    permissionView.getDialogGuestsList().remove(guest);
-                    fellows.remove(fellow);
+                    uselessGuests.remove(fellow);
+                    it.remove();
                 }
             }
         }
+
         for(UserInformation user : permissionView.getDialogGuestsList()){
             usersIds.add(user.getId());
         }

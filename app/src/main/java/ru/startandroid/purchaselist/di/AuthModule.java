@@ -5,6 +5,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import dagger.Module;
 import dagger.Provides;
+import ru.startandroid.purchaselist.di.annotations.PerFragment;
 import ru.startandroid.purchaselist.presenters.AuthPresenter;
 import ru.startandroid.purchaselist.presenters.AuthenticationPresenterImpl;
 import ru.startandroid.purchaselist.views.MainViewInterface;
@@ -22,7 +23,7 @@ public class AuthModule {
         this.screenView = screenView;
         this.mainView = mainView;
     }
-
+    @PerFragment
     @Provides
     AuthPresenter provideAuthPresenter(FirebaseAuth mAuth, FirebaseDatabase database){
         return new AuthenticationPresenterImpl(mAuth, database, mainView, screenView);

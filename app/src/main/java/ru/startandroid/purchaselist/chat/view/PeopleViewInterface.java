@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 
 import java.util.List;
 
+import ru.startandroid.purchaselist.model.GoodsList;
 import ru.startandroid.purchaselist.model.UserInformation;
 
 /**
@@ -15,7 +16,9 @@ public interface PeopleViewInterface {
     void refreshList();
     List<UserInformation> getPeopleList();
     List<UserInformation> getInvitedPersonsList();
+    List<String> getGuests();
     List<UserInformation> getStaticPeopleList();
     SharedPreferences getPreferences();
+    GoodsList getParentList();
     boolean checkPerson(int position);
 }

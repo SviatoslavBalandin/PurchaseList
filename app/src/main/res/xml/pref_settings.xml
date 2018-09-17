@@ -13,7 +13,7 @@
         <CheckBoxPreference
             android:key="lists_show_quantity"
             android:title="@string/quantity"
-            android:summary="@string/pref_exp_show_quantity_in_list"/>
+            android:summary="@string/pref_exp_show_quantity_in_list" />
 
     </PreferenceCategory>
 
@@ -40,6 +40,7 @@
             android:key="show_quant"
             android:title="@string/pref_show_quant"
             android:summary="@string/pref_exp_show_quant"/>
+
         <CheckBoxPreference
             android:key="show_price"
             android:title="@string/pref_show_price"
@@ -49,6 +50,12 @@
             android:key="markable"
             android:title="@string/pref_markable"
             android:summary="@string/pref_exp_markable"/>
+
+        <SwitchPreference
+            android:key="ignore_marked"
+            android:title="@string/ignore_marked_title"
+            android:summary="@string/ignore_marked_explanation"
+            android:dependency="markable"/>
 
     </PreferenceCategory>
 

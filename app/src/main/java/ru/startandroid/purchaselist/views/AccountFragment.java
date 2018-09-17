@@ -94,6 +94,9 @@ public class AccountFragment extends Fragment implements AccountScreenView, Alar
 
     @OnClick(R.id.fabDelete)
     public void onDeleteList(){
+
+        if(mainList.size() == 0)
+            return;
         AlarmDialog dialog = new AlarmDialog(this,0);
         dialog.setAlarmDialogTitle(R.string.delete_list_dialog);
         dialog.show(getFragmentManager(), "AlarmDialog");

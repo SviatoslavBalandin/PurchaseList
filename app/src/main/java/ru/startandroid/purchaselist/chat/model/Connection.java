@@ -51,11 +51,6 @@ public class Connection {
         this.listId = listId;
     }
 
-    public void setOwnerId(String ownerId) {
-
-        this.ownerId = ownerId;
-    }
-
     public void setId(String id) {
 
         this.id = id;

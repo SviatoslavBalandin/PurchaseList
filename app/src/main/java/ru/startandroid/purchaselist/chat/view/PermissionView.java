@@ -163,6 +163,7 @@ public class PermissionView extends Fragment implements PermissionViewInterface,
                 .replace(R.id.frag_container,
                         new ChatRootFragment(activity.getSupportFragmentManager(), parentListReference))
                 .commit();
+
     }
     @Override
     public void activateDeleteButton(){

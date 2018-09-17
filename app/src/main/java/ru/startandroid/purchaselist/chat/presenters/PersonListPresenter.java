@@ -9,9 +9,10 @@ import ru.startandroid.purchaselist.model.UserInformation;
  */
 
 public interface PersonListPresenter {
-    void fetchPersons(boolean onCreateView);
+    void fetchPersons();
     int invitePersons(List<UserInformation> invitedPersons);
     List<UserInformation> filter(String query);
     boolean checkPerson(int position);
+    boolean checkInvitedPerson(int position);
 
 }

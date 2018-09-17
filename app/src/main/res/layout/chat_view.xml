@@ -49,15 +49,7 @@
                             android:id="@+id/chatViewToolbarCleanChatHistoryBtn"
                             android:src="@drawable/chat_view_toolbar_clean_history"
                             android:background="#424242"
-                            android:layout_toStartOf="@id/chatViewToolbarPermissionsBtn"
                             android:layout_marginEnd="20dp"
-                            android:layout_centerVertical="true"/>
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/chatViewToolbarPermissionsBtn"
-                            android:src="@drawable/chat_view_toolbar_permissions"
-                            android:background="#424242"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"/>
                     </RelativeLayout>

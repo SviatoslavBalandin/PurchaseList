@@ -45,6 +45,7 @@ public class ChatRootFragment extends Fragment implements ChatRootFragmentInterf
         this.parentReference = new GoodsList(parentReference.getTitle(), parentReference.getDate(),
                 parentReference.getListId(), parentReference.getOwner(), parentReference.isOwner);
         this.parentReference.setConnectionId(parentReference.getConnectionId());
+        this.parentReference.setGuests(parentReference.getGuests());
     }
 
     @Nullable

@@ -5,6 +5,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import dagger.Module;
 import dagger.Provides;
+import ru.startandroid.purchaselist.di.annotations.PerFragment;
 import ru.startandroid.purchaselist.presenters.AccountPresenter;
 import ru.startandroid.purchaselist.presenters.AccountPresenterImpl;
 import ru.startandroid.purchaselist.views.AccountScreenView;
@@ -22,6 +23,7 @@ public class AccountMainListModule {
         this.accountScreenView = accountScreenView;
     }
 
+    @PerFragment
     @Provides
     AccountPresenter provideAccountPresenter(FirebaseDatabase database, FirebaseAuth auth){
         return new AccountPresenterImpl(database, auth, accountScreenView);

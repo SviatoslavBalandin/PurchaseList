@@ -8,6 +8,7 @@ import dagger.Provides;
 import ru.startandroid.purchaselist.chat.presenters.PersonListPresenter;
 import ru.startandroid.purchaselist.chat.presenters.PersonListPresenterImpl;
 import ru.startandroid.purchaselist.chat.view.PeopleViewInterface;
+import ru.startandroid.purchaselist.di.annotations.PerFragment;
 
 /**
  * Created by user on 26/03/2018.
@@ -21,6 +22,7 @@ public class PeopleListViewModule {
         this.peopleView = peopleView;
     }
 
+    @PerFragment
     @Provides
     public PersonListPresenter providePersonListPresenter(FirebaseDatabase database, FirebaseAuth auth){
         return new PersonListPresenterImpl(database, auth, peopleView);

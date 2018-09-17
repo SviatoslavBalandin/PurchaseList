@@ -1,6 +1,7 @@
 package ru.startandroid.purchaselist.chat.helpers;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,17 +42,24 @@ public class PeopleListAdapter extends RecyclerView.Adapter<PeopleListAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         holder.nickNameTv.setText(peopleList.get(position).getName());
-
-        if(peopleView.checkPerson(position))
+        if(peopleView.checkPerson(position)) {
+            Log.e("LOG", "person present in invited");
             holder.peopleListItemCheckBox.setChecked(true);
-        else
+            holder.peopleListItemCheckBox.setEnabled(false);
+        }
+        else {
+            Log.e("LOG", "size of invited = " + peopleView.getGuests().size());
+            Log.e("LOG", "person absent in invited");
             holder.peopleListItemCheckBox.setChecked(false);
+            holder.peopleListItemCheckBox.setEnabled(true);
+        }
     }
 
     @Override
     public int getItemCount() {
         return peopleList == null ? 0 : peopleList.size();
     }
+
     public void setFilter(List<UserInformation> newPeopleList){
         peopleList.clear();
         peopleList.addAll(newPeopleList);

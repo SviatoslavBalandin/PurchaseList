@@ -72,7 +72,21 @@
                 app:layout_anchorGravity="bottom|right|end"
                 app:layout_behavior="ru.startandroid.purchaselist.views.helpers.ScrollDisappearFABBehavior"
                 app:rippleColor="@android:color/holo_red_dark" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabPermissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:src="@drawable/chat_view_toolbar_permissions_2"
+                app:backgroundTint="#343CA0"
+                app:fabSize="normal"
+                app:layout_anchor="@id/peopleRecyclerList"
+                app:layout_anchorGravity="bottom|left|end"
+                app:layout_behavior="ru.startandroid.purchaselist.views.helpers.ScrollDisappearFABBehavior"
+                app:rippleColor="@android:color/holo_red_dark" />
         </android.support.design.widget.CoordinatorLayout>
+
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

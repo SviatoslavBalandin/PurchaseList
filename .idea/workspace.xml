@@ -21,7 +21,44 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PeopleListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PeopleListAdapter.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/model/Connection.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/model/Connection.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenter.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenterImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenterImpl.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatView.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleViewInterface.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleViewInterface.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AccountMainListComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AccountMainListComponent.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AccountMainListModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AccountMainListModule.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthComponent.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthModule.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/ChatComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/ChatComponent.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/ChatModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/ChatModule.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/GoodsListComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/GoodsListComponent.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/GoodsListModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/GoodsListModule.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/InvitationComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/InvitationComponent.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/InvitationModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/InvitationModule.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainActivityModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainActivityModule.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainComponent.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PeopleListViewComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PeopleListViewComponent.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PeopleListViewModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PeopleListViewModule.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PermissionsComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PermissionsComponent.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PermissionsModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PermissionsModule.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/model/GoodsList.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/model/GoodsList.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/technical_staff/DateComparator.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/technical_staff/DateComparator.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AccountFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AccountFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ScreenView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ScreenView.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ShoppingListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ShoppingListFragment.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/chat_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/chat_view.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/people_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/people_view.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/pref_settings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/pref_settings.xml" />
     </list>
     <ignored path="PurchaseList.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,53 +108,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="PermissionView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1213">
+              <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ChatRootFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccountFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AccountFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1656">
-              <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+            <state relative-caret-position="348">
+              <caret line="47" column="66" lean-forward="false" selection-start-line="47" selection-start-column="66" selection-end-line="47" selection-end-column="66" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccountPresenterImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1008">
-              <caret line="197" column="22" lean-forward="true" selection-start-line="197" selection-start-column="22" selection-end-line="197" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#14321#14322#0" expanded="true" />
-                <element signature="e#14366#14367#0" expanded="true" />
-                <marker date="1535891452562" expanded="true" signature="13123:13130" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChatView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4580#4581#0" expanded="true" />
-                <element signature="e#4635#4636#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -125,28 +133,68 @@
       <file leaf-file-name="PeopleView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="152">
+              <caret line="207" column="41" lean-forward="true" selection-start-line="207" selection-start-column="41" selection-end-line="207" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4662#4663#0" expanded="true" />
+                <element signature="e#4691#4692#0" expanded="true" />
+                <element signature="e#5369#5401#0" expanded="true" />
+                <element signature="e#5437#5448#0" expanded="true" />
+                <element signature="e#5484#5496#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonListPresenterImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenterImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="617">
+              <caret line="135" column="28" lean-forward="false" selection-start-line="135" selection-start-column="28" selection-end-line="135" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PermissionView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java">
+      <file leaf-file-name="PeopleListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PeopleListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="49" column="48" lean-forward="false" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
+            <state relative-caret-position="357">
+              <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+              <folding>
+                <element signature="e#1935#1936#0" expanded="true" />
+                <element signature="e#2000#2001#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PeopleViewInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleViewInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java">
+      <file leaf-file-name="PersonListPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="234">
+              <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodsList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/model/GoodsList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1332">
+              <caret line="93" column="29" lean-forward="false" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -2267,64 +2315,64 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PeopleListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/ChatListViewAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/helpers/MainListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/helpers/PurchaseListRecyclerViewAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/helpers/InvitationListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PermissionAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/ChatModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/GoodsListModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/InvitationModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PeopleListViewModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PermissionsModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AccountMainListModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/RenameListDialogOutside.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/EmailPasswordFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PreferenceModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/MyApp.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthComponent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/annotations/PerApp.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/annotations/PerFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AppComponent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/fireBaseModule/FirebaseModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/InvitationListPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/rx/FireFlowable.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/rx/FireFlowableFactory.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/technical_staff/DateComparator.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/technical_staff/FireFlowableFactory.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/InvitationListPresenterImpl.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/ShoppingListPresenterImpl.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthenticationPresenterImpl.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/MainActivityPresenterImpl.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/ChatPresenterImpl.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenterImpl.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AccountFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/CalendarFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/InvitationListView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/ChatFragmentPagerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/annotations/PerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AccountMainListComponent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AccountMainListModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthComponent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ScreenView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/ChatComponent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/ChatModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/GoodsListModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/GoodsListComponent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/InvitationComponent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/InvitationModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PeopleListViewComponent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PeopleListViewModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PermissionsComponent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PermissionsModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainComponent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainActivityModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/technical_staff/DateComparator.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/model/Connection.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/model/GoodsList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AccountFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ShoppingListFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/xml/pref_settings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/chat_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/people_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatRootFragmentInterface.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleViewInterface.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenterImpl.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PeopleListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="67" />
-    <option name="y" value="80" />
-    <option name="width" value="1350" />
+    <option name="x" value="-234" />
+    <option name="y" value="63" />
+    <option name="width" value="1340" />
     <option name="height" value="1000" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -2365,17 +2413,78 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane">
+      <pane id="Scope" />
+      <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
-              <item name="PurchaseList" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
             </path>
             <path>
-              <item name="PurchaseList" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="ru.startandroid.purchaselist" type="1f31426a:PackageElementNode" />
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="presenters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
@@ -2427,13 +2536,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView">
+      <pane id="PackagesPane">
         <subPane>
           <expand>
             <path>
-              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+              <item name="PurchaseList" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="PurchaseList" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="ru.startandroid.purchaselist" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -2454,7 +2567,7 @@
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="ExportApk.SignV2" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535891061131" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537214038085" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.0.1" />
   </component>
   <component name="RecentsManager">
@@ -2890,30 +3003,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="80" width="1920" height="1055" extended-state="6" />
+    <frame x="-234" y="63" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.49786097" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46242774" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13528138" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3030303" sideWeight="0.08537887" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37012988" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32716763" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34415585" sideWeight="0.9146211" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31493506" sideWeight="0.9146211" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2289221" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41576675" sideWeight="0.85645676" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1969697" sideWeight="0.85645676" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36471862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12987013" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2930,7 +3044,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.4893048" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5132948" sideWeight="0.51069516" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4913295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -3021,229 +3134,571 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
-          <line>194</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java</url>
+          <line>85</line>
           <properties />
-          <option name="timeStamp" value="1093" />
+          <option name="timeStamp" value="1106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="1107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java</url>
+          <line>131</line>
+          <properties />
+          <option name="timeStamp" value="1108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java</url>
+          <line>141</line>
+          <properties />
+          <option name="timeStamp" value="1109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java</url>
+          <line>142</line>
+          <properties />
+          <option name="timeStamp" value="1110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java</url>
+          <line>143</line>
+          <properties />
+          <option name="timeStamp" value="1111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java</url>
+          <line>144</line>
+          <properties />
+          <option name="timeStamp" value="1112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java</url>
+          <line>145</line>
+          <properties />
+          <option name="timeStamp" value="1113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>200</line>
+          <properties />
+          <option name="timeStamp" value="1156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>209</line>
+          <properties />
+          <option name="timeStamp" value="1158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>205</line>
+          <properties />
+          <option name="timeStamp" value="1161" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>226</line>
+          <properties />
+          <option name="timeStamp" value="1165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>228</line>
+          <properties />
+          <option name="timeStamp" value="1166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>229</line>
+          <properties />
+          <option name="timeStamp" value="1167" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>211</line>
+          <properties />
+          <option name="timeStamp" value="1168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>213</line>
+          <properties />
+          <option name="timeStamp" value="1169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>214</line>
+          <properties />
+          <option name="timeStamp" value="1170" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>215</line>
+          <properties />
+          <option name="timeStamp" value="1171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>216</line>
+          <properties />
+          <option name="timeStamp" value="1172" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>218</line>
+          <properties />
+          <option name="timeStamp" value="1174" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>256</line>
+          <properties />
+          <option name="timeStamp" value="1185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>197</line>
+          <properties />
+          <option name="timeStamp" value="1187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>196</line>
+          <properties />
+          <option name="timeStamp" value="1191" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java</url>
+          <line>199</line>
+          <properties method="onDataChange">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1193" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1094" />
+      <option name="time" value="1201" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="234">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AccountFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainActivityModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1656">
-          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4580#4581#0" expanded="true" />
-            <element signature="e#4635#4636#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/helpers/InfoTotal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding />
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthenticationPresenterImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="49" column="48" lean-forward="false" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="1404">
+          <caret line="88" column="14" lean-forward="false" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/email_password.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AccountScreenView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="216">
+          <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4338">
-          <caret line="241" column="61" lean-forward="true" selection-start-line="241" selection-start-column="61" selection-end-line="241" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#14321#14322#0" expanded="true" />
-            <element signature="e#14366#14367#0" expanded="true" />
-            <marker date="1535891452562" expanded="true" signature="13123:13130" ph="{...}" />
-          </folding>
+        <state relative-caret-position="252">
+          <caret line="33" column="45" lean-forward="false" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/ru/startandroid/purchaselist/views/helpers/AlarmDialog_ViewBinding.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="486">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AccountFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/helpers/AlarmDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1656">
-          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="162">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PeopleListViewModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4580#4581#0" expanded="true" />
-            <element signature="e#4635#4636#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="49" column="48" lean-forward="false" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4338">
-          <caret line="241" column="61" lean-forward="true" selection-start-line="241" selection-start-column="61" selection-end-line="241" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#14321#14322#0" expanded="true" />
-            <element signature="e#14366#14367#0" expanded="true" />
-            <marker date="1535891452562" expanded="true" signature="13123:13130" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4580#4581#0" expanded="true" />
-            <element signature="e#4635#4636#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="49" column="48" lean-forward="false" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.9/890fc9ef77d78ac270f322b024c0e660a8f57ea0/rxjava-2.1.9-sources.jar!/io/reactivex/functions/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="31" column="6" lean-forward="false" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+        <state relative-caret-position="252">
+          <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/helpers/RecyclerItemClickListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
+        <state relative-caret-position="542">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/InvitationListPresenterImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1062">
+          <caret line="76" column="69" lean-forward="false" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ScreenView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/technical_staff/DateComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.9/890fc9ef77d78ac270f322b024c0e660a8f57ea0/rxjava-2.1.9-sources.jar!/io/reactivex/internal/operators/flowable/FlowableMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/model/Purchase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/technical_staff/FireFlowableFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/model/Answer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/model/Invitation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/model/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/InvitationListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/ShoppingListPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="75" column="60" lean-forward="false" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/pref_settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="59" column="25" lean-forward="false" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.9/890fc9ef77d78ac270f322b024c0e660a8f57ea0/rxjava-2.1.9-sources.jar!/io/reactivex/internal/operators/single/SingleObserveOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/model/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="78" lean-forward="false" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/ShoppingListPresenterImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2016">
+          <caret line="28" column="37" lean-forward="false" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/permissions_view.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_chat_black_24dp.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="43" lean-forward="false" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-mdpi/chat_view_toolbar_permissions.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chat_view.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="53" column="66" lean-forward="false" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
+          <folding>
+            <element signature="e#4373#4390#0" expanded="false" />
+            <element signature="e#5161#5175#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="70" column="42" lean-forward="false" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-25/android/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="889" column="26" lean-forward="false" selection-start-line="889" selection-start-column="26" selection-end-line="889" selection-end-column="26" />
+          <folding>
+            <element signature="e#34010#34011#0" expanded="false" />
+            <element signature="e#34048#34049#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatRootFragmentInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ShoppingListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="226" column="44" lean-forward="false" selection-start-line="226" selection-start-column="44" selection-end-line="226" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/ChatView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="65" column="25" lean-forward="false" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+          <folding>
+            <element signature="e#4409#4410#0" expanded="false" />
+            <element signature="e#4464#4465#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/ChatPresenterImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="31" column="36" lean-forward="false" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/people_view.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1415">
+          <caret line="86" column="65" lean-forward="false" selection-start-line="86" selection-start-column="65" selection-end-line="86" selection-end-column="65" />
+          <folding>
+            <element signature="e#2222#2260#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AccountFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1656">
-          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1008">
-          <caret line="197" column="22" lean-forward="true" selection-start-line="197" selection-start-column="22" selection-end-line="197" selection-end-column="22" />
+        <state relative-caret-position="214">
+          <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+          <folding>
+            <marker date="1537127617824" expanded="true" signature="7227:7259" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1213">
+          <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#14321#14322#0" expanded="true" />
-            <element signature="e#14366#14367#0" expanded="true" />
-            <marker date="1535891452562" expanded="true" signature="13123:13130" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleViewInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="47" column="66" lean-forward="false" selection-start-line="47" selection-start-column="66" selection-end-line="47" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/model/GoodsList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1332">
+          <caret line="93" column="29" lean-forward="false" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="207" column="41" lean-forward="true" selection-start-line="207" selection-start-column="41" selection-end-line="207" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4662#4663#0" expanded="true" />
+            <element signature="e#4691#4692#0" expanded="true" />
+            <element signature="e#5369#5401#0" expanded="true" />
+            <element signature="e#5437#5448#0" expanded="true" />
+            <element signature="e#5484#5496#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PeopleListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding>
+            <element signature="e#1935#1936#0" expanded="true" />
+            <element signature="e#2000#2001#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenterImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="135" column="28" lean-forward="false" selection-start-line="135" selection-start-column="28" selection-end-line="135" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

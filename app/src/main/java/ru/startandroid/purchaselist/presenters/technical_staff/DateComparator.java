@@ -1,7 +1,5 @@
 package ru.startandroid.purchaselist.presenters.technical_staff;
 
-import android.util.Log;
-
 import java.util.Comparator;
 
 import ru.startandroid.purchaselist.model.GoodsList;

@@ -72,6 +72,8 @@
     <string name="name">Name:</string>
     <string name="dismiss"> Dismiss </string>
     <string name="product">Product</string>
+    <string name="ignore_marked_title">Ignore marked items</string>
+    <string name="ignore_marked_explanation">Calculator will ignore marked items</string>
 
     <string-array name="chat_wallpapers_titles">
         <item>coffee table</item>

@@ -41,7 +41,7 @@ public class AuthenticationFragment extends Fragment implements ScreenView {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-       View v  = inflater.inflate(R.layout.email_password, null);
+        View v  = inflater.inflate(R.layout.email_password, null);
         ButterKnife.bind(this, v);
         mainView = (MainViewInterface) getActivity();
         resolveDependencies();
@@ -60,10 +60,6 @@ public class AuthenticationFragment extends Fragment implements ScreenView {
     public void logIn(){
        presenter.logIn(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
-    }
-    @Override
-    public void showReport(String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
     @Override
     public void showErrorMessage(String key) {

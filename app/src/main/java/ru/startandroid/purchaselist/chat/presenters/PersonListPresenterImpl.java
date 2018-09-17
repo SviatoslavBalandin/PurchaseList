@@ -18,6 +18,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import ru.startandroid.purchaselist.chat.model.Connection;
 import ru.startandroid.purchaselist.chat.model.Invitation;
 import ru.startandroid.purchaselist.chat.view.PeopleViewInterface;
 import ru.startandroid.purchaselist.model.UserInformation;
@@ -36,6 +37,8 @@ public class PersonListPresenterImpl implements PersonListPresenter {
     private static final String USERS_KEY = "Users";
     private  SimpleDateFormat sdf;
 
+
+
     public PersonListPresenterImpl(FirebaseDatabase database, FirebaseAuth auth, PeopleViewInterface peopleView) {
         this.database = database;
         this.auth = auth;
@@ -46,7 +49,7 @@ public class PersonListPresenterImpl implements PersonListPresenter {
 
     @SuppressLint("CheckResult")
     @Override
-    public void fetchPersons(boolean onCreateView) {
+    public void fetchPersons() {
         usersReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -59,6 +62,7 @@ public class PersonListPresenterImpl implements PersonListPresenter {
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(peopleList -> {
+                                Log.e("peopleTry", "fetch persons");
                                 peopleView.getStaticPeopleList().addAll(peopleList);
                                 peopleView.getPeopleList().addAll(peopleList);
                                 peopleView.refreshList();
@@ -97,7 +101,7 @@ public class PersonListPresenterImpl implements PersonListPresenter {
                     peopleView.getPreferences().getString("listId", ""),
                     peopleView.getPreferences().getString("listTitle", ""),
                     time);
-            //put in this reference our invitation
+            //put invitation in this reference
             invitationReference.child(invitationId).setValue(invitation);
 
         }
@@ -123,6 +127,15 @@ public class PersonListPresenterImpl implements PersonListPresenter {
     public boolean checkPerson(int position) {
         for (UserInformation info : peopleView.getInvitedPersonsList()){
             if(info.getId().equals(peopleView.getPeopleList().get(position).getId()))
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean checkInvitedPerson(int position) {
+        for(String guestId : peopleView.getGuests()){
+            if(guestId.equals(peopleView.getPeopleList().get(position).getId()))
                 return true;
         }
         return false;
