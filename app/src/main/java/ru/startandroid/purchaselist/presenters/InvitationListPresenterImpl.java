@@ -10,6 +10,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -51,7 +54,7 @@ public InvitationListPresenterImpl(FirebaseDatabase database, FirebaseAuth auth,
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(invitations -> {
                                 invitationListView.getInvitationList().clear();
-                                invitationListView.getInvitationList().addAll(invitations);
+                                invitationListView.getInvitationList().addAll(flipList(invitations));
                                 invitationListView.showInvitation();
                                 invitationListView.refreshInvitationList();
                             });
@@ -89,4 +92,11 @@ public InvitationListPresenterImpl(FirebaseDatabase database, FirebaseAuth auth,
         invitationListView.refreshInvitationList();
     }
 
+    private List<Invitation> flipList(List<Invitation> list) {
+        List<Invitation> newList = new ArrayList<>();
+        for (int i = list.size() - 1; i >= 0; i--) {
+            newList.add(list.get(i));
+        }
+        return newList;
+    }
 }

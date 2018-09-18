@@ -26,16 +26,18 @@ import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFacto
 public class PermissionPresenterImpl implements PermissionPresenter{
 
     private PermissionViewInterface permissionView;
-    private DatabaseReference concreteConnection;
     private DatabaseReference guestListReference;
     private DatabaseReference usersReference;
+    private DatabaseReference concreteConnection;
 
     public PermissionPresenterImpl(PermissionViewInterface permissionView, FirebaseDatabase database){
         this.permissionView = permissionView;
-        concreteConnection = database.getReference().child("Connections").child(permissionView.getConnectionId());
-        if(permissionView.getConnectionId() != null)
-            guestListReference = database.getReference().child("Connections").child(permissionView.getConnectionId()).child("guestsList");
+
+        if(permissionView.getParentList().getListId() != null)
+            guestListReference = database.getReference().child("Shopping Lists").child(permissionView.getParentList().getListId()).child("guests");
+
         usersReference = database.getReference().child("Users");
+        concreteConnection = database.getReference().child("Connections").child(permissionView.getParentList().getConnectionId());
     }
     @SuppressLint("CheckResult")
     @Override
@@ -78,7 +80,8 @@ public class PermissionPresenterImpl implements PermissionPresenter{
         for(UserInformation user : permissionView.getDialogGuestsList()){
             usersIds.add(user.getId());
         }
-        if(usersIds.size() > 0)
+
+        if(permissionView.getDialogGuestsList().size() > 0)
             guestListReference.setValue(usersIds);
         else
             concreteConnection.removeValue();
@@ -108,9 +111,9 @@ public class PermissionPresenterImpl implements PermissionPresenter{
                             .toList()
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(userInformations -> {
+                            .subscribe(usersInformation -> {
                                 for (String userId : usersIds){
-                                    for (UserInformation user : userInformations){
+                                    for (UserInformation user : usersInformation){
                                         if(user.getId().equals(userId)) {
                                             dialogUsers.add(user);
                                             break;

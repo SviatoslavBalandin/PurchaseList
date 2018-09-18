@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -25,7 +29,7 @@ import ru.startandroid.purchaselist.presenters.AuthPresenter;
  * Created by user on 12/10/2017.
  */
 
-public class AuthenticationFragment extends Fragment implements ScreenView {
+public class AuthenticationFragment extends Fragment implements AuthenticationFragmentInterface {
 
     @Inject
     AuthPresenter presenter;
@@ -37,6 +41,7 @@ public class AuthenticationFragment extends Fragment implements ScreenView {
     @BindView(R.id.etUserName) EditText etUserName;
 
     private MainViewInterface mainView;
+    private List<String> usersNames;
 
     @Nullable
     @Override
@@ -44,6 +49,7 @@ public class AuthenticationFragment extends Fragment implements ScreenView {
         View v  = inflater.inflate(R.layout.email_password, null);
         ButterKnife.bind(this, v);
         mainView = (MainViewInterface) getActivity();
+        usersNames = new ArrayList<>();
         resolveDependencies();
         return v;
     }
@@ -79,6 +85,12 @@ public class AuthenticationFragment extends Fragment implements ScreenView {
                 break;
         }
     }
+
+    @Override
+    public List<String> getUsersNames() {
+        return usersNames;
+    }
+
     public SharedPreferences getPreferences(){
         return mainView.getPrivatePreferences();
     }

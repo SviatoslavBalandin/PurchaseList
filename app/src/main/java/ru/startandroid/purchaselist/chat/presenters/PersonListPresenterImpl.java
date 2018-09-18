@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -44,7 +45,7 @@ public class PersonListPresenterImpl implements PersonListPresenter {
         this.auth = auth;
         this.peopleView = peopleView;
         usersReference = database.getReference().child(USERS_KEY);
-        sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm a");
+        sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm a", Locale.GERMANY);
     }
 
     @SuppressLint("CheckResult")
@@ -78,17 +79,14 @@ public class PersonListPresenterImpl implements PersonListPresenter {
                 Log.e("", databaseError.getMessage());
             }
         });
-
     }
 
     @Override
-    public int invitePersons(List<UserInformation> invitedPersons) {
+    public void invitePersons(List<UserInformation> invitedPersons) {
         String INVITATIONS_KEY = "invitations";
         String CURRENT_USER_NAME = "current user name";
         String  time = sdf.format(Calendar.getInstance().getTime());
 
-        if (invitedPersons.size() == 0)
-            return 0;
         //handle users
         for (UserInformation user : invitedPersons) {
             //find each user invitations reference
@@ -105,7 +103,6 @@ public class PersonListPresenterImpl implements PersonListPresenter {
             invitationReference.child(invitationId).setValue(invitation);
 
         }
-        return invitedPersons.size();
     }
 
     @Override

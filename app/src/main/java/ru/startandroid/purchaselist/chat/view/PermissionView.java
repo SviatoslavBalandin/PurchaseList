@@ -112,8 +112,8 @@ public class PermissionView extends Fragment implements PermissionViewInterface,
     }
 
     @Override
-    public String getConnectionId() {
-        return parentListReference.getConnectionId();
+    public GoodsList getParentList() {
+        return parentListReference;
     }
 
     @OnClick(R.id.permissViewDeleteGuests)

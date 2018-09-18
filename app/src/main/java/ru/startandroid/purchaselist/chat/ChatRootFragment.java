@@ -87,10 +87,10 @@ public class ChatRootFragment extends Fragment implements ChatRootFragmentInterf
     }
 
 
-    private int checkIsOwner(){
-        if(parentReference.isOwner)
-            return 2;
-        else
-            return 1;
+    private int checkIsOwner() {
+        if (parentReference != null) {
+            return parentReference.isOwner ? 2 : 1;
+        }
+        return 0;
     }
 }

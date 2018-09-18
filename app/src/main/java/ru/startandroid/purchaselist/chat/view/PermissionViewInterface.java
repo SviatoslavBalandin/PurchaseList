@@ -2,6 +2,7 @@ package ru.startandroid.purchaselist.chat.view;
 
 import java.util.List;
 
+import ru.startandroid.purchaselist.model.GoodsList;
 import ru.startandroid.purchaselist.model.UserInformation;
 
 /**
@@ -13,7 +14,7 @@ public interface PermissionViewInterface {
     void refreshGuestsList();
     List<UserInformation> getDialogGuestsList();
     List<UserInformation> getUselessGuests();
-    String getConnectionId();
+    GoodsList getParentList();
     void activateDeleteButton();
 
 }

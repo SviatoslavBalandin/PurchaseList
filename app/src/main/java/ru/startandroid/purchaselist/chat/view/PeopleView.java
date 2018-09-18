@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -96,6 +98,7 @@ public class PeopleView extends Fragment implements PeopleViewInterface, AlarmOn
         guests = chatRootFragment.getParentList().getGuests();
         resolveDependencies();
         adapter = new PeopleListAdapter(this);
+        countInvitedGuests(guests);
         presenter.fetchPersons();
         peopleList.addAll(staticPeopleList);
         attachOnClickListenerToRecyclerView(peopleRecyclerList);
@@ -148,7 +151,7 @@ public class PeopleView extends Fragment implements PeopleViewInterface, AlarmOn
     @Override
     public boolean checkPerson(int position) {
 
-        return presenter.checkInvitedPerson(position);
+        return presenter.checkInvitedPerson(position) || presenter.checkPerson(position);
     }
 
     @OnClick(R.id.fabInvitePersons)
@@ -202,23 +205,23 @@ public class PeopleView extends Fragment implements PeopleViewInterface, AlarmOn
             public void onClick(View v, int position) {
                 CheckBox checkBox = (CheckBox) v.findViewById(R.id.peopleListItemCheckBox);
 
-                if(!presenter.checkInvitedPerson(position))
+                if(!presenter.checkInvitedPerson(position)) {
                     checkBox.toggle();
 
-                if(checkBox.isChecked()){
-                    if(!presenter.checkPerson(position)){
-                        if(counter.add()) {
-                            invitedPersonsList.add(peopleList.get(position));
-                            peopleNumberLimitTv.setText("(" + invitedPersonsList.size() + "/5)");
+                    if (checkBox.isChecked()) {
+                        if (!presenter.checkPerson(position)) {
+                            if (counter.add()) {
+                                invitedPersonsList.add(peopleList.get(position));
+                                peopleNumberLimitTv.setText("(" + (guests.size() + invitedPersonsList.size()) + "/5)");
+                            } else
+                                checkBox.setChecked(false);
                         }
-                        else
-                            checkBox.setChecked(false);
-                    }
-                }else {
-                    if(presenter.checkPerson(position)) {
-                        if (counter.deduct()) {
-                            invitedPersonsList.remove(invitedPersonsList.indexOf(peopleList.get(position)));
-                            peopleNumberLimitTv.setText("(" + invitedPersonsList.size() + "/5)");
+                    } else {
+                        if (presenter.checkPerson(position)) {
+                            if (counter.deduct()) {
+                                invitedPersonsList.remove(invitedPersonsList.indexOf(peopleList.get(position)));
+                                peopleNumberLimitTv.setText("(" + (guests.size() + invitedPersonsList.size()) + "/5)");
+                            }
                         }
                     }
                 }
@@ -227,5 +230,11 @@ public class PeopleView extends Fragment implements PeopleViewInterface, AlarmOn
             public void onLongClick(View v, int position) {
             }
         }));
+    }
+    private void countInvitedGuests(List<String> guests){
+        peopleNumberLimitTv.setText("(" + guests.size() + "/5)");
+        for (int i = 0; i < guests.size(); i++) {
+            counter.add();
+        }
     }
 }

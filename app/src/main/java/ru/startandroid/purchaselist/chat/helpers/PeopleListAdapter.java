@@ -42,16 +42,13 @@ public class PeopleListAdapter extends RecyclerView.Adapter<PeopleListAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         holder.nickNameTv.setText(peopleList.get(position).getName());
+
         if(peopleView.checkPerson(position)) {
-            Log.e("LOG", "person present in invited");
             holder.peopleListItemCheckBox.setChecked(true);
-            holder.peopleListItemCheckBox.setEnabled(false);
         }
         else {
-            Log.e("LOG", "size of invited = " + peopleView.getGuests().size());
-            Log.e("LOG", "person absent in invited");
             holder.peopleListItemCheckBox.setChecked(false);
-            holder.peopleListItemCheckBox.setEnabled(true);
+
         }
     }
 
