@@ -1,19 +1,20 @@
 package ru.startandroid.purchaselist.views;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -23,6 +24,7 @@ import butterknife.OnClick;
 import ru.startandroid.purchaselist.MyApp;
 import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.di.AuthModule;
+import ru.startandroid.purchaselist.model.UserInformation;
 import ru.startandroid.purchaselist.presenters.AuthPresenter;
 
 /**
@@ -41,7 +43,7 @@ public class AuthenticationFragment extends Fragment implements AuthenticationFr
     @BindView(R.id.etUserName) EditText etUserName;
 
     private MainViewInterface mainView;
-    private List<String> usersNames;
+    private List<UserInformation> usersData;
 
     @Nullable
     @Override
@@ -49,8 +51,9 @@ public class AuthenticationFragment extends Fragment implements AuthenticationFr
         View v  = inflater.inflate(R.layout.email_password, null);
         ButterKnife.bind(this, v);
         mainView = (MainViewInterface) getActivity();
-        usersNames = new ArrayList<>();
+        usersData = new ArrayList<>();
         resolveDependencies();
+        presenter.fetchAllUsersData(usersData);
         return v;
     }
     private void resolveDependencies(){
@@ -61,11 +64,13 @@ public class AuthenticationFragment extends Fragment implements AuthenticationFr
     public void logUp() {
         presenter.signUp(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
+        Log.e("LOg", "usersData: " + usersData.size());
     }
     @OnClick(R.id.btnLogIn)
     public void logIn(){
        presenter.logIn(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
+        Log.e("LOg", "usersData: " + usersData.size());
     }
     @Override
     public void showErrorMessage(String key) {
@@ -87,8 +92,8 @@ public class AuthenticationFragment extends Fragment implements AuthenticationFr
     }
 
     @Override
-    public List<String> getUsersNames() {
-        return usersNames;
+    public List<UserInformation> getUsersData() {
+        return usersData;
     }
 
     public SharedPreferences getPreferences(){

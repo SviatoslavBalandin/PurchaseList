@@ -21,20 +21,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/ChatRootFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PeopleListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PeopleListAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenterImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PersonListPresenterImpl.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PeopleView.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionViewInterface.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionViewInterface.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthModule.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthPresenter.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthenticationPresenterImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthenticationPresenterImpl.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/InvitationListPresenterImpl.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/InvitationListPresenterImpl.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ScreenView.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragmentInterface.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragmentInterface.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java" />
     </list>
     <ignored path="PurchaseList.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,43 +75,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AuthenticationPresenterImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthenticationPresenterImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="61" column="48" lean-forward="false" selection-start-line="61" selection-start-column="48" selection-end-line="61" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+            <state relative-caret-position="365">
+              <caret line="189" column="50" lean-forward="false" selection-start-line="189" selection-start-column="50" selection-end-line="189" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivityPresenterImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/MainActivityPresenterImpl.java">
+      <file leaf-file-name="AuthenticationPresenterImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthenticationPresenterImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccountPresenterImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1186">
-              <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+            <state relative-caret-position="41">
+              <caret line="114" column="41" lean-forward="false" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
               <folding>
-                <marker date="1537127617824" expanded="true" signature="7227:7259" ph="{...}" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,23 +100,11 @@
       <file leaf-file-name="AuthenticationFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="842">
-              <caret line="93" column="39" lean-forward="false" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
+            <state relative-caret-position="5">
+              <caret line="66" column="55" lean-forward="false" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
               <folding>
-                <element signature="e#2822#2823#0" expanded="true" />
-                <element signature="e#2855#2856#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthModule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="72" lean-forward="false" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3068#3069#0" expanded="true" />
+                <element signature="e#3100#3101#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,9 +113,11 @@
       <file leaf-file-name="AuthenticationFragmentInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragmentInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="216">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,8 +125,8 @@
       <file leaf-file-name="AuthPresenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+            <state relative-caret-position="288">
+              <caret line="16" column="58" lean-forward="false" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -196,6 +157,7 @@
       <find>FireFlowable</find>
       <find>answerListener</find>
       <find>shoppingListsReference</find>
+      <find>preferences</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\user\AndroidStudioProjects\PurchaseList\app\src\main\res\mipmap-mdpi</dir>
@@ -2288,7 +2250,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/ShoppingListPresenterImpl.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/ChatPresenterImpl.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/CalendarFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/InvitationListView.java" />
@@ -2308,7 +2269,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/PermissionsModule.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainComponent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/MainActivityModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/technical_staff/DateComparator.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/model/Connection.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/model/GoodsList.java" />
@@ -2332,13 +2292,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionViewInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/view/PermissionView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/presenters/PermissionPresenterImpl.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragmentInterface.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ScreenView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/di/AuthModule.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthenticationPresenterImpl.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/MainActivityPresenterImpl.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragmentInterface.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/MyApp.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthenticationPresenterImpl.java" />
       </list>
     </option>
   </component>
@@ -2385,6 +2347,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2454,52 +2418,7 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
               <item name="presenters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="di" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="presenters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="purchaselist" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PurchaseList" type="1abcf292:AndroidViewProjectNode" />
@@ -2509,8 +2428,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -2542,7 +2459,7 @@
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="ExportApk.SignV2" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537302681232" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537380651350" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.0.1" />
   </component>
   <component name="RecentsManager">
@@ -2991,18 +2908,17 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37012988" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32716763" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31493506" sideWeight="0.9146211" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31493506" sideWeight="0.9146211" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2289221" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09090909" sideWeight="0.85645676" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4913295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23268399" sideWeight="0.85645676" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36471862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36471862" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -3021,6 +2937,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5132948" sideWeight="0.51069516" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4913295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.49786097" order="7" side_tool="false" content_ui="tabs" />
@@ -3260,13 +3177,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.9/890fc9ef77d78ac270f322b024c0e660a8f57ea0/rxjava-2.1.9-sources.jar!/io/reactivex/internal/operators/flowable/FlowableMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/model/Purchase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -3454,7 +3364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3462,7 +3371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3470,7 +3378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3478,7 +3385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="10174" column="26" lean-forward="false" selection-start-line="10174" selection-start-column="26" selection-end-line="10174" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3486,7 +3392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1301">
           <caret line="93" column="29" lean-forward="false" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3494,7 +3399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="132" column="24" lean-forward="false" selection-start-line="132" selection-start-column="24" selection-end-line="132" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3502,7 +3406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-54">
           <caret line="45" column="46" lean-forward="false" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3510,7 +3413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3518,7 +3420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3526,7 +3427,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="90" column="38" lean-forward="false" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3534,7 +3434,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3552,7 +3451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="97" column="10" lean-forward="true" selection-start-line="97" selection-start-column="10" selection-end-line="97" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3560,23 +3458,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ScreenView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/ScreenView.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/chat/helpers/PermissionAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="24" column="63" lean-forward="false" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3588,14 +3477,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="93" column="39" lean-forward="false" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
+        <state relative-caret-position="2556">
+          <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
           <folding>
-            <element signature="e#2822#2823#0" expanded="true" />
-            <element signature="e#2855#2856#0" expanded="true" />
+            <marker date="1537127617824" expanded="true" signature="7227:7259" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/MainActivityPresenterImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -3604,33 +3499,33 @@
         <state relative-caret-position="342">
           <caret line="19" column="72" lean-forward="false" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AccountPresenterImpl.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/MyApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1186">
-          <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
-          <folding>
-            <marker date="1537127617824" expanded="true" signature="7227:7259" ph="{...}" />
-          </folding>
+        <state relative-caret-position="306">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragmentInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="46" lean-forward="false" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        <state relative-caret-position="288">
+          <caret line="16" column="58" lean-forward="false" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3639,25 +3534,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+        <state relative-caret-position="365">
+          <caret line="189" column="50" lean-forward="false" selection-start-line="189" selection-start-column="50" selection-end-line="189" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/MainActivityPresenterImpl.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/views/AuthenticationFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="5">
+          <caret line="66" column="55" lean-forward="false" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+          <folding>
+            <element signature="e#3068#3069#0" expanded="true" />
+            <element signature="e#3100#3101#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/startandroid/purchaselist/presenters/AuthenticationPresenterImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="61" column="48" lean-forward="false" selection-start-line="61" selection-start-column="48" selection-end-line="61" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="41">
+          <caret line="114" column="41" lean-forward="false" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

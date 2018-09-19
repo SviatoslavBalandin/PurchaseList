@@ -188,8 +188,6 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
                     break;
 
                 case R.id.drawer_LogOut_Item_menu:
-                    getPrivatePreferences().edit().clear().commit();
-                    getPreferences().edit().clear().commit();
                     drawerLayout.closeDrawer(Gravity.START);
                     presenter.logOut();
                     openEmailPasswordView();
