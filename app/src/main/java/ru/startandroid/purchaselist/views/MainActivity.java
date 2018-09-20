@@ -15,6 +15,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -22,6 +25,7 @@ import butterknife.ButterKnife;
 import ru.startandroid.purchaselist.MyApp;
 import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.di.MainActivityModule;
+import ru.startandroid.purchaselist.model.UserInformation;
 import ru.startandroid.purchaselist.presenters.MainActivityPresenterImpl;
 
 /**
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
     private FragmentManager fragManager;
     private boolean isAccountViewOpened = false;
+    private List<UserInformation> usersData;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
         ButterKnife.bind(this);
         resolveDependencies();
         fragManager = getFragmentManager();
+        usersData = new ArrayList<>();
+        presenter.fetchAllUsersData(usersData);
         toolbar.setNavigationIcon(R.drawable.ic_acc_nav3);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -131,6 +138,11 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     }
 
     @Override
+    public List<UserInformation> getUsersData() {
+        return usersData;
+    }
+
+    @Override
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
@@ -189,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
                 case R.id.drawer_LogOut_Item_menu:
                     drawerLayout.closeDrawer(Gravity.START);
-                    presenter.logOut();
+                    presenter.signOut();
                     openEmailPasswordView();
                     showMessage("You have Logged Out :(");
                     item.setChecked(true);

@@ -50,10 +50,9 @@ public class AuthenticationFragment extends Fragment implements AuthenticationFr
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v  = inflater.inflate(R.layout.email_password, null);
         ButterKnife.bind(this, v);
-        mainView = (MainViewInterface) getActivity();
-        usersData = new ArrayList<>();
         resolveDependencies();
-        presenter.fetchAllUsersData(usersData);
+        mainView = (MainViewInterface) getActivity();
+        usersData = mainView.getUsersData();
         return v;
     }
     private void resolveDependencies(){
@@ -64,13 +63,11 @@ public class AuthenticationFragment extends Fragment implements AuthenticationFr
     public void logUp() {
         presenter.signUp(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
-        Log.e("LOg", "usersData: " + usersData.size());
     }
     @OnClick(R.id.btnLogIn)
     public void logIn(){
        presenter.logIn(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
-        Log.e("LOg", "usersData: " + usersData.size());
     }
     @Override
     public void showErrorMessage(String key) {

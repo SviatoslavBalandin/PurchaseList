@@ -46,8 +46,6 @@ public class AccountPresenterImpl implements AccountPresenter{
     private ValueEventListener answerListener;
 
     private final String SHOPPING_LISTS_KEY = "Shopping Lists";
-    private final String CONNECTIONS_KEY = "Connections";
-
 
     @Inject
     public AccountPresenterImpl(FirebaseDatabase database, FirebaseAuth auth, AccountScreenView accountScreenView){
@@ -57,7 +55,7 @@ public class AccountPresenterImpl implements AccountPresenter{
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         shoppingListsReference = database.getReference().child(SHOPPING_LISTS_KEY);
         answerReference = database.getReference().child("Users").child(auth.getCurrentUser().getUid()).child( "answers");
-        connectionReference = database.getReference().child(CONNECTIONS_KEY);
+        connectionReference = database.getReference().child("Connections");
         today = sdf.format(Calendar.getInstance().getTime());
         currentUserId = auth.getCurrentUser().getUid();
     }
@@ -211,12 +209,12 @@ public class AccountPresenterImpl implements AccountPresenter{
                             Log.e("myLog", "size = " + size + ", goodsList.getGuests().size() = " + goodsList.getGuests().size());
                             if(size == 0) {
                                 Log.e("myLog", "size = 0");
-                                connection = uploadConnection(answer);
+                                //connection = uploadConnection(answer);
                                 Log.e("myLog", "upload Connection");
                             }else if(goodsList.getGuests().size() > 1 && goodsList.getGuests().size() < 5){
-                                connection.getGuestsList().add(answer.getUserId());
+                                //connection.getGuestsList().add(answer.getUserId());
                                 Log.e("myLog", "add friend 2");
-                                connectionReference.child(connection.getId()).setValue(connection);
+                                //connectionReference.child(connection.getId()).setValue(connection);
                                 Log.e("myLog", "add friend to Connection");
                             }
                         }
