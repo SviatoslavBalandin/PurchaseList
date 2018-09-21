@@ -62,7 +62,6 @@ public class PermissionPresenterImpl implements PermissionPresenter{
             }
         });
     }
-    //TODO:  fix concurrent exception
     @Override
     public void deleteDialogGuests(List<UserInformation> uselessGuests) {
         List<String> usersIds = new ArrayList<>();
@@ -83,8 +82,10 @@ public class PermissionPresenterImpl implements PermissionPresenter{
 
         if(permissionView.getDialogGuestsList().size() > 0)
             guestListReference.setValue(usersIds);
-        else
+        else {
+            guestListReference.removeValue();
             concreteConnection.removeValue();
+        }
 
         permissionView.refreshGuestsList();
         permissionView.activateDeleteButton();

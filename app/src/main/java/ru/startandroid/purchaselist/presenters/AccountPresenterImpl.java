@@ -148,7 +148,6 @@ public class AccountPresenterImpl implements AccountPresenter{
             }
         };
         answerReference.addValueEventListener(answerListener);
-
     }
 
     @Override
@@ -224,8 +223,9 @@ public class AccountPresenterImpl implements AccountPresenter{
                     Log.e("myLog", "after if");
                     database.getReference().child(SHOPPING_LISTS_KEY).child(answer.getListId()).setValue(goodsList);
 
-                    answerReference.child(answer.getAnswerId()).removeValue();
+                    //answerReference.child(answer.getAnswerId()).removeValue();
                     shoppingListsReference.removeEventListener(this);
+
                 }
 
                 @Override
