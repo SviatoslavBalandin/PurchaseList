@@ -16,9 +16,7 @@ public class Connection {
     private String listId;
     private List<String> guestsList;
 
-    public Connection(){
-        guestsList = new ArrayList<>();
-    }
+    public Connection(){}
 
     public Connection(String id, String ownerId, String listId, String firstGuestId){
         this.id = id;

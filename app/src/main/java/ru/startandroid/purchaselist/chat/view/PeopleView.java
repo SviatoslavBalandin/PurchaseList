@@ -96,6 +96,8 @@ public class PeopleView extends Fragment implements PeopleViewInterface, AlarmOn
         peopleList = new ArrayList<>();
         invitedPersonsList = new ArrayList<>();
         guests = chatRootFragment.getParentList().getGuests();
+        if(guests == null)
+            guests = new ArrayList<>();
         resolveDependencies();
         adapter = new PeopleListAdapter(this);
         countInvitedGuests(guests);

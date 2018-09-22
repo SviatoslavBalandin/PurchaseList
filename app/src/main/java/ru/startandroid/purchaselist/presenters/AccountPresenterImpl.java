@@ -19,6 +19,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.chat.model.Answer;
 import ru.startandroid.purchaselist.chat.model.Connection;
@@ -45,15 +46,13 @@ public class AccountPresenterImpl implements AccountPresenter{
     private ValueEventListener fetchListsEventListener;
     private ValueEventListener answerListener;
 
-    private final String SHOPPING_LISTS_KEY = "Shopping Lists";
-
     @Inject
     public AccountPresenterImpl(FirebaseDatabase database, FirebaseAuth auth, AccountScreenView accountScreenView){
         this.accountScreenView = accountScreenView;
         this.database = database;
         firebaseAuth = auth;
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        shoppingListsReference = database.getReference().child(SHOPPING_LISTS_KEY);
+        shoppingListsReference = database.getReference().child("Shopping Lists");
         answerReference = database.getReference().child("Users").child(auth.getCurrentUser().getUid()).child( "answers");
         connectionReference = database.getReference().child("Connections");
         today = sdf.format(Calendar.getInstance().getTime());
@@ -81,7 +80,7 @@ public class AccountPresenterImpl implements AccountPresenter{
 
     @Override
     public void renameList(String newName, String listId) {
-        DatabaseReference listNameReference = database.getReference("Shopping Lists").child(listId).child("title");
+        DatabaseReference listNameReference = shoppingListsReference.child(listId).child("title");
         listNameReference.setValue(newName);
 
     }
@@ -129,18 +128,13 @@ public class AccountPresenterImpl implements AccountPresenter{
                         FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                                 .map(dataSnapshot1 -> dataSnapshot1.getValue(Answer.class))
                                 .filter(Answer::getContent)
-                                .toList()
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(list -> {
-                                    Log.e("myLog", "size: " + String.valueOf(list.size()));
-                                    addGuestsToList(list);
-                                });
+                                .subscribe(answer -> addGuestsToList(answer));
                     }
                 }catch (Exception e){
                     //skip
                 }
-
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -189,52 +183,34 @@ public class AccountPresenterImpl implements AccountPresenter{
         }
     }
     //TODO: fix loop rush and spamming by connections and in guest list
-    private void addGuestsToList(List<Answer> list){
+    private void addGuestsToList(Answer answer){
         int guestsLimit = 5;
-        for (Answer answer : list){
-            shoppingListsReference.child(answer.getListId()).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    GoodsList goodsList = dataSnapshot.getValue(GoodsList.class);
-                    try {
-                        Connection connection = null;
-                        Log.e("myLog", "first");
-                        Log.e("myLog", "" + checkPresentGuest(answer.getUserId(), goodsList.getGuests()) + ", size = " + goodsList.getGuests().size() );
-                        if(!checkPresentGuest(answer.getUserId(), goodsList.getGuests()) && goodsList.getGuests().size() < guestsLimit){
-                            Log.e("myLog", "inside of if");
-                            int size = goodsList.getGuests().size();
-                            Log.e("myLog", "guests size received");
-                            goodsList.getGuests().add(answer.getUserId());
-                            Log.e("myLog", "size = " + size + ", goodsList.getGuests().size() = " + goodsList.getGuests().size());
-                            if(size == 0) {
-                                Log.e("myLog", "size = 0");
-                                //connection = uploadConnection(answer);
-                                Log.e("myLog", "upload Connection");
-                            }else if(goodsList.getGuests().size() > 1 && goodsList.getGuests().size() < 5){
-                                //connection.getGuestsList().add(answer.getUserId());
-                                Log.e("myLog", "add friend 2");
-                                //connectionReference.child(connection.getId()).setValue(connection);
-                                Log.e("myLog", "add friend to Connection");
-                            }
-                        }
-                    }catch (NullPointerException e){
-                            Log.e("myLog", "NullPointerException in addGuestsToList method");
+        shoppingListsReference.child(answer.getListId()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                GoodsList goodsList = dataSnapshot.getValue(GoodsList.class);
+                if(goodsList.getGuests() == null)
+                    goodsList.setGuests(new ArrayList<>());
+                if (!checkPresentGuest(answer.getUserId(), goodsList.getGuests()) && goodsList.getGuests().size() < guestsLimit) {
+                    Connection connection = null;
+                    goodsList.getGuests().add(answer.getUserId());
+                    shoppingListsReference.child(answer.getListId()).setValue(goodsList);
+                    if (goodsList.getGuests().size() == 1) {
+                        connection = uploadConnection(answer);
+                    } else if (goodsList.getGuests().size() > 1) {
+                        connectionReference.child(goodsList.getConnectionId()).child("guestsList").setValue(goodsList.getGuests());
                     }
-                    Log.e("myLog", "after if");
-                    database.getReference().child(SHOPPING_LISTS_KEY).child(answer.getListId()).setValue(goodsList);
-
-                    //answerReference.child(answer.getAnswerId()).removeValue();
-                    shoppingListsReference.removeEventListener(this);
-
                 }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    shoppingListsReference.removeEventListener(this);
-                }
+                answerReference.child(answer.getAnswerId()).removeValue();
+                shoppingListsReference.child(answer.getListId()).removeEventListener(this);
+            }
 
-            });
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                shoppingListsReference.removeEventListener(this);
+            }
+        });
     }
 
     private boolean checkPresentGuest(String id, List<String> guestsId){

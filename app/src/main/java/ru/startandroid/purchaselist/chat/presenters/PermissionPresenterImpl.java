@@ -29,12 +29,15 @@ public class PermissionPresenterImpl implements PermissionPresenter{
     private DatabaseReference guestListReference;
     private DatabaseReference usersReference;
     private DatabaseReference concreteConnection;
+    private DatabaseReference shoppingListReference;
 
     public PermissionPresenterImpl(PermissionViewInterface permissionView, FirebaseDatabase database){
         this.permissionView = permissionView;
 
-        if(permissionView.getParentList().getListId() != null)
+        if(permissionView.getParentList().getListId() != null) {
+            shoppingListReference = database.getReference().child("Shopping Lists").child(permissionView.getParentList().getListId());
             guestListReference = database.getReference().child("Shopping Lists").child(permissionView.getParentList().getListId()).child("guests");
+        }
 
         usersReference = database.getReference().child("Users");
         concreteConnection = database.getReference().child("Connections").child(permissionView.getParentList().getConnectionId());
@@ -85,6 +88,7 @@ public class PermissionPresenterImpl implements PermissionPresenter{
         else {
             guestListReference.removeValue();
             concreteConnection.removeValue();
+            //shoppingListReference.child("connectionId").setValue("");
         }
 
         permissionView.refreshGuestsList();

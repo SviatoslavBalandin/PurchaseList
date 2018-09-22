@@ -21,9 +21,7 @@ public class GoodsList implements GoodsListInterface {
     public boolean isOwner;
 
 
-    public GoodsList(){
-        guests = new ArrayList<>();
-        purchases = new HashMap<>();}
+    public GoodsList(){ }
 
     public GoodsList(String title, String date, String listId, UserInformation owner, boolean isOwner){
         this.title = title;
