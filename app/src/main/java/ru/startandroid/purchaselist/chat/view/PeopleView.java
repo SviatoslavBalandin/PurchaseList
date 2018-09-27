@@ -146,11 +146,6 @@ public class PeopleView extends Fragment implements PeopleViewInterface, AlarmOn
     }
 
     @Override
-    public GoodsList getParentList() {
-        return chatRootFragment.getParentList();
-    }
-
-    @Override
     public boolean checkPerson(int position) {
 
         return presenter.checkInvitedPerson(position) || presenter.checkPerson(position);

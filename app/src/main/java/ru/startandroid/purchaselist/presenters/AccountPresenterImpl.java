@@ -128,9 +128,10 @@ public class AccountPresenterImpl implements AccountPresenter{
                         FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
                                 .map(dataSnapshot1 -> dataSnapshot1.getValue(Answer.class))
                                 .filter(Answer::getContent)
+                                .toList()
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(answer -> addGuestsToList(answer));
+                                .subscribe(answers -> addGuestsToList(filterAnswersByOwner(answers)));
                     }
                 }catch (Exception e){
                     //skip
@@ -182,42 +183,50 @@ public class AccountPresenterImpl implements AccountPresenter{
             }
         }
     }
-    //TODO: fix loop rush and spamming by connections and in guest list
-    private void addGuestsToList(Answer answer){
+    //TODO: fix bug with creation of connection
+    //this bug connected with answers amount...
+    //as many connections as many answers
+    private void addGuestsToList(List<Answer> answers){
         int guestsLimit = 5;
-        shoppingListsReference.child(answer.getListId()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                GoodsList goodsList = dataSnapshot.getValue(GoodsList.class);
-                if(goodsList.getGuests() == null)
-                    goodsList.setGuests(new ArrayList<>());
-                if (!checkPresentGuest(answer.getUserId(), goodsList.getGuests()) && goodsList.getGuests().size() < guestsLimit) {
-                    Connection connection = null;
-                    goodsList.getGuests().add(answer.getUserId());
-                    shoppingListsReference.child(answer.getListId()).setValue(goodsList);
-                    if (goodsList.getGuests().size() == 1) {
-                        connection = uploadConnection(answer);
-                    } else if (goodsList.getGuests().size() > 1) {
-                        connectionReference.child(goodsList.getConnectionId()).child("guestsList").setValue(goodsList.getGuests());
+        for (Answer answer : answers) {
+            shoppingListsReference.child(answer.getListId()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    GoodsList goodsList = dataSnapshot.getValue(GoodsList.class);
+                    if (goodsList.getGuests() == null)
+                        goodsList.setGuests(new ArrayList<>());
+                    if (!checkPresentGuest(answer.getUserId(), goodsList.getGuests()) && goodsList.getGuests().size() < guestsLimit) {
+                        goodsList.getGuests().add(answer.getUserId());
+                        shoppingListsReference.child(answer.getListId()).setValue(goodsList);
+
+                        if (goodsList.getConnectionId().equals("")) {
+                            uploadConnection(answer);
+                            Log.e("LOg", "one more connection was uploaded");
+                        } else {
+                            connectionReference.child(goodsList.getConnectionId()).child("guestsList").setValue(goodsList.getGuests());
+                        }
+
                     }
+
+                    answerReference.child(answer.getAnswerId()).removeValue();
+                    shoppingListsReference.child(answer.getListId()).removeEventListener(this);
                 }
 
-                answerReference.child(answer.getAnswerId()).removeValue();
-                shoppingListsReference.child(answer.getListId()).removeEventListener(this);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                shoppingListsReference.removeEventListener(this);
-            }
-        });
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    shoppingListsReference.removeEventListener(this);
+                }
+            });
+        }
     }
 
     private boolean checkPresentGuest(String id, List<String> guestsId){
         try {
             for (String currentId : guestsId) {
-                if (currentId.equals(id))
+                if (currentId.equals(id)) {
+                    Log.e("LOg", "current guest already present");
                     return true;
+                }
             }
         }catch (NullPointerException e) {
             //skip
@@ -229,14 +238,20 @@ public class AccountPresenterImpl implements AccountPresenter{
         Connection connection = new Connection(id, currentUserId, answer.getListId(), answer.getUserId());
         connectionReference.child(id).setValue(connection);
         shoppingListsReference.child(answer.getListId()).child("connectionId").setValue(id);
+        Log.e("LOg", "connection name have been filled");
         return connection;
     }
-    private boolean checkPresentConnection(Connection connection, List<Connection> connectionList){
-        for(Connection certainConnect : connectionList){
-            if(certainConnect.getListId().equals(connection.getListId()))
-                return true;
+    private List<Answer> filterAnswersByOwner(List<Answer> answers){
+        for (int i = 0; i < answers.size() - 1; i++) {
+            for( int j = i + 1; j < answers.size(); j++) {
+                if(answers.get(i).getUserId().equals(answers.get(j).getUserId())
+                        && answers.get(i).getListId().equals(answers.get(j).getListId())) {
+                    answers.remove(j);
+                    Log.e("LOg", "redundant answer  was removed");
+                }
+            }
         }
-        return false;
+        return answers;
     }
     private void performDeleting(int position){
 

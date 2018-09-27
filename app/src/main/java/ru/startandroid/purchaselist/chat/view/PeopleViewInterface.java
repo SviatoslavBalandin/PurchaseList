@@ -19,6 +19,5 @@ public interface PeopleViewInterface {
     List<String> getGuests();
     List<UserInformation> getStaticPeopleList();
     SharedPreferences getPreferences();
-    GoodsList getParentList();
     boolean checkPerson(int position);
 }

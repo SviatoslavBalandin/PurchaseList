@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.chat.view.PermissionViewInterface;
@@ -65,18 +64,21 @@ public class PermissionPresenterImpl implements PermissionPresenter{
             }
         });
     }
+    //TODO: fix ConcurrentModificationException while deleting more than one user
+    //TODO: and you have to fix item selection issue and implicit bug with deleting
     @Override
     public void deleteDialogGuests(List<UserInformation> uselessGuests) {
         List<String> usersIds = new ArrayList<>();
         Iterator<UserInformation> it = permissionView.getDialogGuestsList().iterator();
-        for(UserInformation fellow : uselessGuests){
+        for (int i = 0; i < uselessGuests.size(); i++) {
             while (it.hasNext()){
                 UserInformation guest = it.next();
-                if(fellow.equals(guest)) {
-                    uselessGuests.remove(fellow);
+                if(uselessGuests.get(i).equals(guest)) {
                     it.remove();
+                    break;
                 }
             }
+            uselessGuests.clear();
         }
 
         for(UserInformation user : permissionView.getDialogGuestsList()){
@@ -88,7 +90,7 @@ public class PermissionPresenterImpl implements PermissionPresenter{
         else {
             guestListReference.removeValue();
             concreteConnection.removeValue();
-            //shoppingListReference.child("connectionId").setValue("");
+            shoppingListReference.child("connectionId").setValue("");
         }
 
         permissionView.refreshGuestsList();
