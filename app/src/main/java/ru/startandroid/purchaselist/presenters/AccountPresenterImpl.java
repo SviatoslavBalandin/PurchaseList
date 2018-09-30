@@ -19,7 +19,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.chat.model.Answer;
 import ru.startandroid.purchaselist.chat.model.Connection;
@@ -37,7 +36,6 @@ public class AccountPresenterImpl implements AccountPresenter{
 
     private AccountScreenView accountScreenView;
     private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase database;
     private DatabaseReference shoppingListsReference;
     private DatabaseReference answerReference;
     private DatabaseReference connectionReference;
@@ -45,11 +43,11 @@ public class AccountPresenterImpl implements AccountPresenter{
     private String currentUserId;
     private ValueEventListener fetchListsEventListener;
     private ValueEventListener answerListener;
+    private  List<Connection> connectionBuffer;
 
     @Inject
     public AccountPresenterImpl(FirebaseDatabase database, FirebaseAuth auth, AccountScreenView accountScreenView){
         this.accountScreenView = accountScreenView;
-        this.database = database;
         firebaseAuth = auth;
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         shoppingListsReference = database.getReference().child("Shopping Lists");
@@ -57,6 +55,7 @@ public class AccountPresenterImpl implements AccountPresenter{
         connectionReference = database.getReference().child("Connections");
         today = sdf.format(Calendar.getInstance().getTime());
         currentUserId = auth.getCurrentUser().getUid();
+        connectionBuffer = new ArrayList<>();
     }
     @Override
     public void addList(){
@@ -117,6 +116,7 @@ public class AccountPresenterImpl implements AccountPresenter{
 
         shoppingListsReference.addValueEventListener(fetchListsEventListener);
     }
+    //TODO: DO SOMETHING!!!
     @Override
     public void reactOnAnswer() {
         answerListener = new ValueEventListener() {
@@ -131,7 +131,9 @@ public class AccountPresenterImpl implements AccountPresenter{
                                 .toList()
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(answers -> addGuestsToList(filterAnswersByOwner(answers)));
+                                .subscribe(list -> addGuestsToList(list));
+
+
                     }
                 }catch (Exception e){
                     //skip
@@ -187,6 +189,7 @@ public class AccountPresenterImpl implements AccountPresenter{
     //this bug connected with answers amount...
     //as many connections as many answers
     private void addGuestsToList(List<Answer> answers){
+        Log.e("LOg", "start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         int guestsLimit = 5;
         for (Answer answer : answers) {
             shoppingListsReference.child(answer.getListId()).addValueEventListener(new ValueEventListener() {
@@ -199,13 +202,15 @@ public class AccountPresenterImpl implements AccountPresenter{
                         goodsList.getGuests().add(answer.getUserId());
                         shoppingListsReference.child(answer.getListId()).setValue(goodsList);
 
-                        if (goodsList.getConnectionId().equals("")) {
-                            uploadConnection(answer);
-                            Log.e("LOg", "one more connection was uploaded");
-                        } else {
+                        String connectionId = checkConnectionByListId(connectionBuffer, goodsList.getListId());
+                        if (connectionId.equals("!")) {
+                            connectionBuffer.add(uploadConnection(answer));
+                            Log.e("LOg", "conn buffer size is " + connectionBuffer.size());
+                        } else if (!connectionId.equals("!")) {
+                            connectionReference.child(connectionId).child("guestsList").setValue(goodsList.getGuests());
+                        } else if (!goodsList.getConnectionId().equals("")){
                             connectionReference.child(goodsList.getConnectionId()).child("guestsList").setValue(goodsList.getGuests());
                         }
-
                     }
 
                     answerReference.child(answer.getAnswerId()).removeValue();
@@ -219,7 +224,17 @@ public class AccountPresenterImpl implements AccountPresenter{
             });
         }
     }
+    private String checkConnectionByListId(List<Connection> connections, String listId){
+        String notFound = "!";
 
+        if(listId.equals("") || connections.size() == 0)
+            return notFound;
+        for (Connection connection : connections){
+            if(connection.getListId().equals(listId))
+                return connection.getId();
+        }
+        return notFound;
+    }
     private boolean checkPresentGuest(String id, List<String> guestsId){
         try {
             for (String currentId : guestsId) {
@@ -238,7 +253,7 @@ public class AccountPresenterImpl implements AccountPresenter{
         Connection connection = new Connection(id, currentUserId, answer.getListId(), answer.getUserId());
         connectionReference.child(id).setValue(connection);
         shoppingListsReference.child(answer.getListId()).child("connectionId").setValue(id);
-        Log.e("LOg", "connection name have been filled");
+        Log.e("LOg", "connection id: " + id);
         return connection;
     }
     private List<Answer> filterAnswersByOwner(List<Answer> answers){

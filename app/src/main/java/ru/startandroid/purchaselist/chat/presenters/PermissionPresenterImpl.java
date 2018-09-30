@@ -64,7 +64,6 @@ public class PermissionPresenterImpl implements PermissionPresenter{
             }
         });
     }
-    //TODO: fix ConcurrentModificationException while deleting more than one user
     //TODO: and you have to fix item selection issue and implicit bug with deleting
     @Override
     public void deleteDialogGuests(List<UserInformation> uselessGuests) {
@@ -78,8 +77,8 @@ public class PermissionPresenterImpl implements PermissionPresenter{
                     break;
                 }
             }
-            uselessGuests.clear();
         }
+        uselessGuests.clear();
 
         for(UserInformation user : permissionView.getDialogGuestsList()){
             usersIds.add(user.getId());
