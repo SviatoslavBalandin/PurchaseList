@@ -24,5 +24,7 @@ public interface AppComponent {
 
     PermissionsComponent createPermissionsComponent(PermissionsModule permissionsModule);
 
+    CalendarComponent createCalendarComponent(CalendarModule calendarModule);
+
 }
 

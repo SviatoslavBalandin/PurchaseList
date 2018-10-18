@@ -224,6 +224,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListView {
         return !parentReference.getConnectionId().equals("");
     }
 
+    @SuppressLint("ApplySharedPref")
     private Toolbar.OnMenuItemClickListener initMenuItemClickListener(){
         return item -> {
             switch (item.getItemId()){

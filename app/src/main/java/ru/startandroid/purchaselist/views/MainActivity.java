@@ -1,5 +1,6 @@
 package ru.startandroid.purchaselist.views;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     Toolbar toolbar;
 
     private FragmentManager fragManager;
-    private boolean isAccountViewOpened = false;
+    private boolean isItLastBorder = false;
     private List<UserInformation> usersData;
 
     @Override
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
     @Override
     public void openEmailPasswordView() {
-        onSwitch();
+        isItLastBorder = true;
         setToolBarVisibility(false);
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
@@ -89,8 +90,8 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
     @Override
     public void openAccountView(boolean switchStatus) {
-        isAccountViewOpened = switchStatus;
-        if(isAccountViewOpened) {
+        isItLastBorder = switchStatus;
+        if(isItLastBorder) {
             attachUserInfoToDrawer();
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
             setToolBarVisibility(false);
@@ -114,12 +115,12 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
     @Override
     public void showDrawer() {
-     drawerLayout.openDrawer(Gravity.START);
+     drawerLayout.openDrawer(Gravity.LEFT);
     }
 
     @Override
     public void onSwitch() {
-        isAccountViewOpened = false;
+        isItLastBorder = false;
     }
 
     @Override
@@ -151,12 +152,13 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(mainNavigationDrawerView)) {
             drawerLayout.closeDrawer(mainNavigationDrawerView);
-        }else if(!isAccountViewOpened){
+        }else if(!isItLastBorder){
             openAccountView(true);
         }else
             super.onBackPressed();
     }
 
+    @SuppressLint("WrongConstant")
     private NavigationView.OnNavigationItemSelectedListener getNavigationItemSelectedListener(){
         return item -> {
             switch (item.getItemId()){

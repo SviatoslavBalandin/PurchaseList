@@ -7,7 +7,6 @@
             <solid android:color="@color/white" />
             <size android:width="25dp" android:height="25dp" />
         </shape>
-        <bitmap android:src="@drawable/people_list_item_image" />
     </item>
     <item android:state_checked="true">
         <layer-list>
@@ -18,7 +17,6 @@
                     <solid android:color="@android:color/black" />
                     <size android:width="25dp" android:height="25dp" />
                 </shape>
-                <bitmap android:src="@drawable/chat_view_toolbar_permissions" />
             </item>
 
         </layer-list>

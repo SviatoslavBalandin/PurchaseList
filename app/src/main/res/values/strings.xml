@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Party Shop List</string>
+    <string name="login">LogIn</string>
+    <string name="signUp">SignUp</string>
+    <string name="app_name">Party Shopping List</string>
     <string name="title_activity_second">SecondActivity</string>
     <string name="accountTitle">Purchase Lists</string>
     <string name="list_title">New List </string>

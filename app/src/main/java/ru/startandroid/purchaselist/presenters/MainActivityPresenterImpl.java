@@ -55,8 +55,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter{
                         .toList()
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(dataList -> {usersData.addAll(dataList);
-                        });
+                        .subscribe(dataList -> usersData.addAll(dataList));
             }
 
             @Override

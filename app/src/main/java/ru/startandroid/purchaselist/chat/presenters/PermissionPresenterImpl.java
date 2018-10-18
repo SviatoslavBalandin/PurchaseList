@@ -64,17 +64,15 @@ public class PermissionPresenterImpl implements PermissionPresenter{
             }
         });
     }
-    //TODO: and you have to fix item selection issue and implicit bug with deleting
     @Override
     public void deleteDialogGuests(List<UserInformation> uselessGuests) {
         List<String> usersIds = new ArrayList<>();
-        Iterator<UserInformation> it = permissionView.getDialogGuestsList().iterator();
         for (int i = 0; i < uselessGuests.size(); i++) {
+            Iterator<UserInformation> it = permissionView.getDialogGuestsList().iterator();
             while (it.hasNext()){
                 UserInformation guest = it.next();
                 if(uselessGuests.get(i).equals(guest)) {
                     it.remove();
-                    break;
                 }
             }
         }
@@ -84,16 +82,17 @@ public class PermissionPresenterImpl implements PermissionPresenter{
             usersIds.add(user.getId());
         }
 
-        if(permissionView.getDialogGuestsList().size() > 0)
+        if(permissionView.getDialogGuestsList().size() > 0) {
             guestListReference.setValue(usersIds);
+            concreteConnection.child("guestsList").setValue(usersIds);
+        }
         else {
             guestListReference.removeValue();
             concreteConnection.removeValue();
             shoppingListReference.child("connectionId").setValue("");
         }
-
-        permissionView.refreshGuestsList();
         permissionView.activateDeleteButton();
+        permissionView.refreshGuestsList();
     }
 
     @Override

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +38,7 @@ public class ChatListViewAdapter extends RecyclerView.Adapter<ChatListViewAdapte
     @Override
     public ChatListViewAdapter.ChatListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_item, parent, false);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY);
         today = sdf.format(Calendar.getInstance().getTime());
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, -1);
@@ -96,7 +97,7 @@ public class ChatListViewAdapter extends RecyclerView.Adapter<ChatListViewAdapte
         holder.messageCover.setLayoutParams(params);
         holder.userNickNameContainer.setLayoutParams(params2);
     }
-    protected class ChatListViewHolder extends RecyclerView.ViewHolder {
+    class ChatListViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.userNickNameContainer)
         LinearLayout userNickNameContainer;
@@ -113,7 +114,7 @@ public class ChatListViewAdapter extends RecyclerView.Adapter<ChatListViewAdapte
         @BindView(R.id.currentUserNickNameTv)
         TextView messageOwner;
 
-        public ChatListViewHolder(View itemView) {
+        ChatListViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }

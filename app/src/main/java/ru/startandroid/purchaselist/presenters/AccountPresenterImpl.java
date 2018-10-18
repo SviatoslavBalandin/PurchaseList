@@ -1,6 +1,7 @@
 package ru.startandroid.purchaselist.presenters;
 
 import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -28,9 +30,6 @@ import ru.startandroid.purchaselist.presenters.technical_staff.DateComparator;
 import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFactory;
 import ru.startandroid.purchaselist.views.AccountScreenView;
 
-/**
- * Created by user on 19/11/2017.
- */
 
 public class AccountPresenterImpl implements AccountPresenter{
 
@@ -44,21 +43,29 @@ public class AccountPresenterImpl implements AccountPresenter{
     private ValueEventListener fetchListsEventListener;
     private ValueEventListener answerListener;
     private  List<Connection> connectionBuffer;
+    private List<GoodsList> goodsListsBuffer;
 
     @Inject
     public AccountPresenterImpl(FirebaseDatabase database, FirebaseAuth auth, AccountScreenView accountScreenView){
         this.accountScreenView = accountScreenView;
         firebaseAuth = auth;
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        try {
+            currentUserId = auth.getCurrentUser().getUid();
+        }catch (Exception e){
+            if(currentUserId == null)
+                currentUserId = "";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY);
         shoppingListsReference = database.getReference().child("Shopping Lists");
-        answerReference = database.getReference().child("Users").child(auth.getCurrentUser().getUid()).child( "answers");
+        answerReference = database.getReference().child("Users").child(currentUserId).child( "answers");
         connectionReference = database.getReference().child("Connections");
         today = sdf.format(Calendar.getInstance().getTime());
-        currentUserId = auth.getCurrentUser().getUid();
         connectionBuffer = new ArrayList<>();
+        goodsListsBuffer = new ArrayList<>();
     }
     @Override
     public void addList(){
+        Log.e("LOg", "add list");
         String goodsListReference =  shoppingListsReference.push().getKey();
         GoodsList newList = new GoodsList("New List", today, goodsListReference,
                 new UserInformation(firebaseAuth.getCurrentUser().getEmail(),
@@ -116,9 +123,9 @@ public class AccountPresenterImpl implements AccountPresenter{
 
         shoppingListsReference.addValueEventListener(fetchListsEventListener);
     }
-    //TODO: DO SOMETHING!!!
     @Override
     public void reactOnAnswer() {
+        Log.e("LOg", "react on answer");
         answerListener = new ValueEventListener() {
             @SuppressLint("CheckResult")
             @Override
@@ -185,34 +192,28 @@ public class AccountPresenterImpl implements AccountPresenter{
             }
         }
     }
-    //TODO: fix bug with creation of connection
-    //this bug connected with answers amount...
-    //as many connections as many answers
     private void addGuestsToList(List<Answer> answers){
-        Log.e("LOg", "start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         int guestsLimit = 5;
         for (Answer answer : answers) {
             shoppingListsReference.child(answer.getListId()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     GoodsList goodsList = dataSnapshot.getValue(GoodsList.class);
+                    goodsList = checkListInBuffer(goodsList);
                     if (goodsList.getGuests() == null)
                         goodsList.setGuests(new ArrayList<>());
                     if (!checkPresentGuest(answer.getUserId(), goodsList.getGuests()) && goodsList.getGuests().size() < guestsLimit) {
                         goodsList.getGuests().add(answer.getUserId());
-                        shoppingListsReference.child(answer.getListId()).setValue(goodsList);
-
                         String connectionId = checkConnectionByListId(connectionBuffer, goodsList.getListId());
-                        if (connectionId.equals("!")) {
-                            connectionBuffer.add(uploadConnection(answer));
-                            Log.e("LOg", "conn buffer size is " + connectionBuffer.size());
+                        if (!goodsList.getConnectionId().equals("")){
+                            connectionReference.child(goodsList.getConnectionId()).child("guestsList").setValue(goodsList.getGuests());
                         } else if (!connectionId.equals("!")) {
                             connectionReference.child(connectionId).child("guestsList").setValue(goodsList.getGuests());
-                        } else if (!goodsList.getConnectionId().equals("")){
-                            connectionReference.child(goodsList.getConnectionId()).child("guestsList").setValue(goodsList.getGuests());
+                        }else {
+                            uploadConnection(goodsList, answer);
                         }
+                        shoppingListsReference.child(answer.getListId()).setValue(goodsList);
                     }
-
                     answerReference.child(answer.getAnswerId()).removeValue();
                     shoppingListsReference.child(answer.getListId()).removeEventListener(this);
                 }
@@ -223,6 +224,18 @@ public class AccountPresenterImpl implements AccountPresenter{
                 }
             });
         }
+    }
+    private GoodsList checkListInBuffer(GoodsList goodsList) {
+        if(goodsListsBuffer.size() == 0){
+            goodsListsBuffer.add(goodsList);
+            return goodsList;
+        }
+        for (GoodsList previousList : goodsListsBuffer) {
+            if(previousList.getListId().equals(goodsList.getListId()))
+                return previousList;
+        }
+        goodsListsBuffer.add(goodsList);
+        return goodsList;
     }
     private String checkConnectionByListId(List<Connection> connections, String listId){
         String notFound = "!";
@@ -239,7 +252,6 @@ public class AccountPresenterImpl implements AccountPresenter{
         try {
             for (String currentId : guestsId) {
                 if (currentId.equals(id)) {
-                    Log.e("LOg", "current guest already present");
                     return true;
                 }
             }
@@ -248,25 +260,15 @@ public class AccountPresenterImpl implements AccountPresenter{
         }
         return false;
     }
-    private Connection uploadConnection(Answer answer) {
-        String id = connectionReference.push().getKey();
-        Connection connection = new Connection(id, currentUserId, answer.getListId(), answer.getUserId());
-        connectionReference.child(id).setValue(connection);
-        shoppingListsReference.child(answer.getListId()).child("connectionId").setValue(id);
-        Log.e("LOg", "connection id: " + id);
-        return connection;
-    }
-    private List<Answer> filterAnswersByOwner(List<Answer> answers){
-        for (int i = 0; i < answers.size() - 1; i++) {
-            for( int j = i + 1; j < answers.size(); j++) {
-                if(answers.get(i).getUserId().equals(answers.get(j).getUserId())
-                        && answers.get(i).getListId().equals(answers.get(j).getListId())) {
-                    answers.remove(j);
-                    Log.e("LOg", "redundant answer  was removed");
-                }
-            }
+    private void uploadConnection(@NonNull GoodsList goodsList, Answer answer) {
+        if(goodsList.getConnectionId().equals("")) {
+            String id = connectionReference.push().getKey();
+            goodsList.setConnectionId(id);
+            Connection connection = new Connection(id, currentUserId, goodsList.getListId(), answer.getUserId());
+            shoppingListsReference.child(goodsList.getListId()).child("connectionId").setValue(id);
+            connectionReference.child(id).setValue(connection);
+            connectionBuffer.add(connection);
         }
-        return answers;
     }
     private void performDeleting(int position){
 

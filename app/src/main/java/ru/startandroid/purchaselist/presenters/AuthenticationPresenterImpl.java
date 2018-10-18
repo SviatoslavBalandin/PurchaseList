@@ -2,6 +2,7 @@ package ru.startandroid.purchaselist.presenters;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -36,33 +37,37 @@ public class AuthenticationPresenterImpl implements AuthPresenter{
     }
     @Override
     public void signUp(String email, String password, String username, SharedPreferences preferences) {
-
-        if(!verifyIsEmptyPrivateData(email, password, username)) {
-            return;
-        }else if(checkIsNameAlreadyPresent(username)){
-            mainView.showMessage("Sorry, but this Name already exists");
-            return;
-        }
-
-        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-            if(task.isSuccessful()) {
-                saveUser(email, username, preferences);
-                mainView.showMessage("You've signed up");
-                mainView.openAccountView(true);
-            }else{
-                mainView.showMessage("Authentication failed");
+        Log.e("LOg", "sign up");
+        Log.e("LOg", " firebaseAuth is " + (firebaseAuth != null));
+        if(firebaseAuth.getCurrentUser() == null) {
+            if (!verifyIsEmptyPrivateData(email, password, username)) {
+                return;
+            } else if (checkIsNameAlreadyPresent(username)) {
+                mainView.showMessage("Sorry, but this Name already exists");
+                return;
             }
-        });
+
+            firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    if(saveUser(email, username, preferences)) {
+                        mainView.showMessage("You've signed up");
+                        mainView.openAccountView(true);
+                    }
+                } else {
+                    mainView.showMessage("Authentication failed");
+                }
+            });
+        }
     }
     @Override
     public void logIn(String email, String password, String username, SharedPreferences preferences) {
-
+        Log.e("LOg", "log in");
         if(!verifyIsEmptyPrivateData(email, password, username)) {
-            mainView.showMessage("Failed verification");
+            mainView.showMessage("Verification failed");
             return ;
         }
         if(checkUser(username, email)){
-            mainView.showMessage("Type Your Name, please");
+            mainView.showMessage("Type your name, please");
             return;
         }
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener((task) -> {
@@ -99,11 +104,18 @@ public class AuthenticationPresenterImpl implements AuthPresenter{
         }
         return true;
     }
-    private void saveUser(String email, String username, SharedPreferences preferences) {
-        UserInformation userInfo = new UserInformation(email, username, firebaseAuth.getCurrentUser().getUid());
-        preferences.edit().putString("current user name", username).commit();
-        preferences.edit().putString("current user email", email).commit();
-        database.getReference().child("Users").child(firebaseAuth.getCurrentUser().getUid()).setValue(userInfo);
+    private boolean saveUser(String email, String username, SharedPreferences preferences) {
+        Log.e("LOg", "save user");
+        Log.e("LOg", "user id: " + firebaseAuth.getCurrentUser().getUid());
+        try {
+            UserInformation userInfo = new UserInformation(email, username, firebaseAuth.getCurrentUser().getUid());
+            preferences.edit().putString("current user name", username).commit();
+            preferences.edit().putString("current user email", email).commit();
+            database.getReference().child("Users").child(userInfo.getId()).setValue(userInfo);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
     }
     private boolean checkUser(String userName, String userEmail){
         for (UserInformation it : authView.getUsersData()) {

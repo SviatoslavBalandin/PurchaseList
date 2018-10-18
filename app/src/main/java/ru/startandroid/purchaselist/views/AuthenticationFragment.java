@@ -61,11 +61,13 @@ public class AuthenticationFragment extends Fragment implements AuthenticationFr
 
     @OnClick(R.id.btnLogUp)
     public void logUp() {
+        Log.e("LOg", "(up)names list size: " + mainView.getUsersData().size());
         presenter.signUp(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
     }
     @OnClick(R.id.btnLogIn)
     public void logIn(){
+        Log.e("LOg", "names list size: " + mainView.getUsersData().size());
        presenter.logIn(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
     }

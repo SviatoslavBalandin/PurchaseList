@@ -9,10 +9,6 @@ import ru.startandroid.purchaselist.di.AppComponent;
 import ru.startandroid.purchaselist.di.DaggerAppComponent;
 import ru.startandroid.purchaselist.di.fireBaseModule.FirebaseModule;
 
-/**
- * Created by user on 06/08/2017.
- */
-
 public class MyApp extends Application {
 
     private static AppComponent appComponent;
