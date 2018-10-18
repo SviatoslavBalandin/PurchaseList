@@ -19,10 +19,6 @@ import ru.startandroid.purchaselist.model.Purchase;
 import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFactory;
 import ru.startandroid.purchaselist.views.ShoppingListView;
 
-/**
- * Created by user on 18/02/2018.
- */
-
 public class ShoppingListPresenterImpl implements ShoppingListPresenter {
 
     private DatabaseReference  goodsListReference;
