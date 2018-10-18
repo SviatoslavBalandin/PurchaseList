@@ -11,17 +11,26 @@
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
-            android:layout_height="400dp" />
+            android:layout_height="300dp" />
 
-        <TextView
-            android:id="@+id/tvSetToday"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerCalendarList"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:clipToPadding="false"
+            android:background="@drawable/recycler_style"/>
+        <Button
+            android:id="@+id/btnSetToday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="bottom|start"
             android:text="@string/today"
             android:textColor="@color/colorAccent"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            android:background="@drawable/calendar_button_style"/>
     </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>

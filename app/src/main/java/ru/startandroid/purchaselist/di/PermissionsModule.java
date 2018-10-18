@@ -7,6 +7,7 @@ import dagger.Provides;
 import ru.startandroid.purchaselist.chat.presenters.PermissionPresenter;
 import ru.startandroid.purchaselist.chat.presenters.PermissionPresenterImpl;
 import ru.startandroid.purchaselist.chat.view.PermissionViewInterface;
+import ru.startandroid.purchaselist.di.annotations.PerFragment;
 
 /**
  * Created by user on 10/04/2018.
@@ -19,6 +20,7 @@ public class PermissionsModule {
     public PermissionsModule(PermissionViewInterface permissionView){
         this.permissionView = permissionView;
     }
+    @PerFragment
     @Provides
     public PermissionPresenter providePermissionPresenter(FirebaseDatabase database){
         return new PermissionPresenterImpl(permissionView, database);

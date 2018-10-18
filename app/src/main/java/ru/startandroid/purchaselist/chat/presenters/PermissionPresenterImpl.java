@@ -9,9 +9,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import ru.startandroid.purchaselist.chat.view.PermissionViewInterface;
@@ -25,16 +25,21 @@ import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFacto
 public class PermissionPresenterImpl implements PermissionPresenter{
 
     private PermissionViewInterface permissionView;
-    private DatabaseReference concreteConnection;
     private DatabaseReference guestListReference;
     private DatabaseReference usersReference;
+    private DatabaseReference concreteConnection;
+    private DatabaseReference shoppingListReference;
 
     public PermissionPresenterImpl(PermissionViewInterface permissionView, FirebaseDatabase database){
         this.permissionView = permissionView;
-        concreteConnection = database.getReference().child("Connections").child(permissionView.getConnectionId());
-        if(permissionView.getConnectionId() != null)
-            guestListReference = database.getReference().child("Connections").child(permissionView.getConnectionId()).child("guestsList");
+
+        if(permissionView.getParentList().getListId() != null) {
+            shoppingListReference = database.getReference().child("Shopping Lists").child(permissionView.getParentList().getListId());
+            guestListReference = database.getReference().child("Shopping Lists").child(permissionView.getParentList().getListId()).child("guests");
+        }
+
         usersReference = database.getReference().child("Users");
+        concreteConnection = database.getReference().child("Connections").child(permissionView.getParentList().getConnectionId());
     }
     @SuppressLint("CheckResult")
     @Override
@@ -59,28 +64,35 @@ public class PermissionPresenterImpl implements PermissionPresenter{
             }
         });
     }
-
     @Override
-    public void deleteDialogGuests(List<UserInformation> fellows) {
+    public void deleteDialogGuests(List<UserInformation> uselessGuests) {
         List<String> usersIds = new ArrayList<>();
-        for(UserInformation fellow : fellows){
-            for(UserInformation guest : permissionView.getDialogGuestsList()){
-                if(fellow.equals(guest)) {
-                    permissionView.getDialogGuestsList().remove(guest);
-                    fellows.remove(fellow);
+        for (int i = 0; i < uselessGuests.size(); i++) {
+            Iterator<UserInformation> it = permissionView.getDialogGuestsList().iterator();
+            while (it.hasNext()){
+                UserInformation guest = it.next();
+                if(uselessGuests.get(i).equals(guest)) {
+                    it.remove();
                 }
             }
         }
+        uselessGuests.clear();
+
         for(UserInformation user : permissionView.getDialogGuestsList()){
             usersIds.add(user.getId());
         }
-        if(usersIds.size() > 0)
-            guestListReference.setValue(usersIds);
-        else
-            concreteConnection.removeValue();
 
-        permissionView.refreshGuestsList();
+        if(permissionView.getDialogGuestsList().size() > 0) {
+            guestListReference.setValue(usersIds);
+            concreteConnection.child("guestsList").setValue(usersIds);
+        }
+        else {
+            guestListReference.removeValue();
+            concreteConnection.removeValue();
+            shoppingListReference.child("connectionId").setValue("");
+        }
         permissionView.activateDeleteButton();
+        permissionView.refreshGuestsList();
     }
 
     @Override
@@ -104,9 +116,9 @@ public class PermissionPresenterImpl implements PermissionPresenter{
                             .toList()
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(userInformations -> {
+                            .subscribe(usersInformation -> {
                                 for (String userId : usersIds){
-                                    for (UserInformation user : userInformations){
+                                    for (UserInformation user : usersInformation){
                                         if(user.getId().equals(userId)) {
                                             dialogUsers.add(user);
                                             break;

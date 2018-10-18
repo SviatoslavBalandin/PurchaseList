@@ -45,6 +45,7 @@ public class ChatRootFragment extends Fragment implements ChatRootFragmentInterf
         this.parentReference = new GoodsList(parentReference.getTitle(), parentReference.getDate(),
                 parentReference.getListId(), parentReference.getOwner(), parentReference.isOwner);
         this.parentReference.setConnectionId(parentReference.getConnectionId());
+        this.parentReference.setGuests(parentReference.getGuests());
     }
 
     @Nullable
@@ -86,10 +87,10 @@ public class ChatRootFragment extends Fragment implements ChatRootFragmentInterf
     }
 
 
-    private int checkIsOwner(){
-        if(parentReference.isOwner)
-            return 2;
-        else
-            return 1;
+    private int checkIsOwner() {
+        if (parentReference != null) {
+            return parentReference.isOwner ? 2 : 1;
+        }
+        return 0;
     }
 }

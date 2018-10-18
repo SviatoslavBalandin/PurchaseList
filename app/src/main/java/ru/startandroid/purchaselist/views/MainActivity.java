@@ -1,5 +1,6 @@
 package ru.startandroid.purchaselist.views;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
@@ -15,6 +16,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -22,6 +26,7 @@ import butterknife.ButterKnife;
 import ru.startandroid.purchaselist.MyApp;
 import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.di.MainActivityModule;
+import ru.startandroid.purchaselist.model.UserInformation;
 import ru.startandroid.purchaselist.presenters.MainActivityPresenterImpl;
 
 /**
@@ -41,7 +46,8 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     Toolbar toolbar;
 
     private FragmentManager fragManager;
-    private boolean isAccountViewOpened = false;
+    private boolean isItLastBorder = false;
+    private List<UserInformation> usersData;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,28 +56,26 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
         ButterKnife.bind(this);
         resolveDependencies();
         fragManager = getFragmentManager();
+        usersData = new ArrayList<>();
+        presenter.fetchAllUsersData(usersData);
         toolbar.setNavigationIcon(R.drawable.ic_acc_nav3);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> showDrawer());
         mainNavigationDrawerView.setNavigationItemSelectedListener(getNavigationItemSelectedListener());
+
+        if(presenter.accountGateSwitch()){
+            openAccountView(true);
+        }else
+            openEmailPasswordView();
     }
     private void resolveDependencies(){
         MyApp.getAppComponent().createMainComponent(new MainActivityModule()).inject(this);
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        if(presenter.accountGateSwitch()){
-            openAccountView(true);
-        }else
-            openEmailPasswordView();
-    }
-
-    @Override
     public void openEmailPasswordView() {
-        onSwitch();
+        isItLastBorder = true;
         setToolBarVisibility(false);
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
@@ -86,8 +90,8 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
     @Override
     public void openAccountView(boolean switchStatus) {
-        isAccountViewOpened = switchStatus;
-        if(isAccountViewOpened) {
+        isItLastBorder = switchStatus;
+        if(isItLastBorder) {
             attachUserInfoToDrawer();
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
             setToolBarVisibility(false);
@@ -111,12 +115,12 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
     @Override
     public void showDrawer() {
-     drawerLayout.openDrawer(Gravity.START);
+     drawerLayout.openDrawer(Gravity.LEFT);
     }
 
     @Override
     public void onSwitch() {
-        isAccountViewOpened = false;
+        isItLastBorder = false;
     }
 
     @Override
@@ -135,6 +139,11 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     }
 
     @Override
+    public List<UserInformation> getUsersData() {
+        return usersData;
+    }
+
+    @Override
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
@@ -143,12 +152,13 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(mainNavigationDrawerView)) {
             drawerLayout.closeDrawer(mainNavigationDrawerView);
-        }else if(!isAccountViewOpened){
+        }else if(!isItLastBorder){
             openAccountView(true);
         }else
             super.onBackPressed();
     }
 
+    @SuppressLint("WrongConstant")
     private NavigationView.OnNavigationItemSelectedListener getNavigationItemSelectedListener(){
         return item -> {
             switch (item.getItemId()){
@@ -192,10 +202,8 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
                     break;
 
                 case R.id.drawer_LogOut_Item_menu:
-                    getPrivatePreferences().edit().clear().commit();
-                    getPreferences().edit().clear().commit();
                     drawerLayout.closeDrawer(Gravity.START);
-                    presenter.logOut();
+                    presenter.signOut();
                     openEmailPasswordView();
                     showMessage("You have Logged Out :(");
                     item.setChecked(true);

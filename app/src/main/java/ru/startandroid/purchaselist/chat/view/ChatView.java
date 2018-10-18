@@ -59,15 +59,12 @@ public class ChatView extends Fragment implements ChatViewInterface, AlarmOnClic
     Toolbar toolbar;
     @BindView(R.id.chatViewToolbarCleanChatHistoryBtn)
     ImageButton cleanHistoryBtn;
-    @BindView(R.id.chatViewToolbarPermissionsBtn)
-    ImageButton permissionsBtn;
     @BindView(R.id.chatViewToolbarTitle)
     TextView toolbarTitle;
 
     private ArrayList<Message> messageList;
     private ChatRootFragmentInterface chatRootFragment;
     private  ChatListViewAdapter adapter;
-    private MainViewInterface mainView;
 
     public ChatView(){}
 
@@ -81,13 +78,14 @@ public class ChatView extends Fragment implements ChatViewInterface, AlarmOnClic
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.chat_view, null);
         ButterKnife.bind(this, v);
-        String listTitle = getPrivatePreferences().getString("listTitle","");
         AppCompatActivity activity = (AppCompatActivity) getActivity();
-        mainView = (MainViewInterface) activity;
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.chat_navigation_icon);
-        toolbarTitle.setText(listTitle + " (Chat)");
+        if(!isRootFragmentNull()) {
+            String listTitle = getPrivatePreferences().getString("listTitle", "");
+            toolbarTitle.setText(listTitle + " (Chat)");
+        }
         toolbar.setNavigationOnClickListener(v1 -> chatRootFragment.backToList());
         checkIfOwner();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -119,12 +117,12 @@ public class ChatView extends Fragment implements ChatViewInterface, AlarmOnClic
 
     @Override
     public SharedPreferences getPreferences() {
-        return chatRootFragment.getMainPreferences();
+        return chatRootFragment == null ? null : chatRootFragment.getPrivatePreferences();
     }
 
     @Override
     public SharedPreferences getPrivatePreferences() {
-        return chatRootFragment.getPrivatePreferences();
+        return chatRootFragment == null ? null : chatRootFragment.getPrivatePreferences();
     }
 
     @Override
@@ -159,14 +157,6 @@ public class ChatView extends Fragment implements ChatViewInterface, AlarmOnClic
         chatPresenter.deleteAllMessages();
     }
 
-    @OnClick(R.id.chatViewToolbarPermissionsBtn)
-    public void clickOnPermissions(){
-        chatRootFragment.getMainFragmentManager().beginTransaction()
-                .replace(R.id.frag_container,
-                        new PermissionView(getParentList()))
-                .commit();
-    }
-
     private boolean switchSendButtonEnabling(){
         return !TextUtils.isEmpty(chatRootFragment.getParentList().getConnectionId()) && !TextUtils.isEmpty(editMessageEt.getText().toString());
     }
@@ -197,11 +187,12 @@ public class ChatView extends Fragment implements ChatViewInterface, AlarmOnClic
     private void checkIfOwner(){
         if(getParentList().isOwner){
             cleanHistoryBtn.setVisibility(View.VISIBLE);
-            permissionsBtn.setVisibility(View.VISIBLE);
         }else {
             cleanHistoryBtn.setVisibility(View.INVISIBLE);
-            permissionsBtn.setVisibility(View.INVISIBLE);
         }
 
+    }
+    private boolean isRootFragmentNull(){
+        return chatRootFragment == null;
     }
 }

@@ -69,6 +69,8 @@ public class ShoppingListPresenterImpl implements ShoppingListPresenter {
 
                 for (Purchase listPurchase : shoppingListView.getGoodsList()){
 
+                    if(listPurchase == null)
+                        break;
                     if(listPurchase.getId().equals(purchaseId)){
                         shoppingListView.getGoodsList().set(shoppingListView.getGoodsList().indexOf(listPurchase), purchase);
                     }

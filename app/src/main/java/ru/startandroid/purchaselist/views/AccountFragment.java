@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import ru.startandroid.purchaselist.MyApp;
 import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.di.AccountMainListModule;
 import ru.startandroid.purchaselist.model.GoodsList;
+import ru.startandroid.purchaselist.model.UserInformation;
 import ru.startandroid.purchaselist.presenters.AccountPresenter;
 import ru.startandroid.purchaselist.views.helpers.AlarmDialog;
 import ru.startandroid.purchaselist.views.helpers.AlarmOnClickListener;
@@ -88,12 +90,13 @@ public class AccountFragment extends Fragment implements AccountScreenView, Alar
     }
 
     @OnClick(R.id.fabAdd)
-    public void onAddList() {
-       presenter.addList();
-   }
+    public void onAddList() { presenter.addList(); }
 
     @OnClick(R.id.fabDelete)
     public void onDeleteList(){
+
+        if(mainList.size() == 0)
+            return;
         AlarmDialog dialog = new AlarmDialog(this,0);
         dialog.setAlarmDialogTitle(R.string.delete_list_dialog);
         dialog.show(getFragmentManager(), "AlarmDialog");

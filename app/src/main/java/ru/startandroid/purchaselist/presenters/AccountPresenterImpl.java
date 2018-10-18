@@ -1,6 +1,7 @@
 package ru.startandroid.purchaselist.presenters;
 
 import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -28,42 +30,42 @@ import ru.startandroid.purchaselist.presenters.technical_staff.DateComparator;
 import ru.startandroid.purchaselist.presenters.technical_staff.FireFlowableFactory;
 import ru.startandroid.purchaselist.views.AccountScreenView;
 
-/**
- * Created by user on 19/11/2017.
- */
 
 public class AccountPresenterImpl implements AccountPresenter{
 
     private AccountScreenView accountScreenView;
     private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase database;
     private DatabaseReference shoppingListsReference;
     private DatabaseReference answerReference;
     private DatabaseReference connectionReference;
     private String today;
     private String currentUserId;
-    private ValueEventListener addForeignListEventListener;
     private ValueEventListener fetchListsEventListener;
     private ValueEventListener answerListener;
-
-    private final String SHOPPING_LISTS_KEY = "Shopping Lists";
-    private final String CONNECTIONS_KEY = "Connections";
-
+    private  List<Connection> connectionBuffer;
+    private List<GoodsList> goodsListsBuffer;
 
     @Inject
     public AccountPresenterImpl(FirebaseDatabase database, FirebaseAuth auth, AccountScreenView accountScreenView){
         this.accountScreenView = accountScreenView;
-        this.database = database;
         firebaseAuth = auth;
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        shoppingListsReference = database.getReference().child(SHOPPING_LISTS_KEY);
-        answerReference = database.getReference().child("Users").child(auth.getCurrentUser().getUid()).child( "answers");
-        connectionReference = database.getReference().child(CONNECTIONS_KEY);
+        try {
+            currentUserId = auth.getCurrentUser().getUid();
+        }catch (Exception e){
+            if(currentUserId == null)
+                currentUserId = "";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.GERMANY);
+        shoppingListsReference = database.getReference().child("Shopping Lists");
+        answerReference = database.getReference().child("Users").child(currentUserId).child( "answers");
+        connectionReference = database.getReference().child("Connections");
         today = sdf.format(Calendar.getInstance().getTime());
-        currentUserId = auth.getCurrentUser().getUid();
+        connectionBuffer = new ArrayList<>();
+        goodsListsBuffer = new ArrayList<>();
     }
     @Override
     public void addList(){
+        Log.e("LOg", "add list");
         String goodsListReference =  shoppingListsReference.push().getKey();
         GoodsList newList = new GoodsList("New List", today, goodsListReference,
                 new UserInformation(firebaseAuth.getCurrentUser().getEmail(),
@@ -75,55 +77,206 @@ public class AccountPresenterImpl implements AccountPresenter{
 
     @Override
     public void deleteList() {
-        if(accountScreenView.getMainList().size() == 0)
-            return;
-        GoodsList trashList = accountScreenView.getMainList().get(0);
-        if(trashList.isOwner) {
-            try {
-                if(!trashList.getConnectionId().equals(""))
-                    connectionReference.child(trashList.getConnectionId()).removeValue();
-                shoppingListsReference.child(trashList.getListId()).removeValue();
-            }catch (NullPointerException e){
-                e.fillInStackTrace();
+       performDeleting(0);
+    }
+    @Override
+    public void deleteList(int position) {
+        performDeleting(position);
+    }
+
+    @Override
+    public void renameList(String newName, String listId) {
+        DatabaseReference listNameReference = shoppingListsReference.child(listId).child("title");
+        listNameReference.setValue(newName);
+
+    }
+
+    @Override
+    public void fetchLists() {
+        fetchListsEventListener = new ValueEventListener() {
+            @SuppressLint("CheckResult")
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                try {
+                    if (dataSnapshot.hasChildren()) {
+                        FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
+                                .map(dataSnapshot1 -> dataSnapshot1.getValue(GoodsList.class))
+                                .filter(list -> list != null)
+                                .filter(list -> list.getOwner().getId().equals(currentUserId) || checkPresentGuest(currentUserId, list.getGuests()))
+                                .toList()
+                                .map(list -> flipList(list))
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(
+                                        list -> addingFinished(list));
+                    }
+                }catch (Exception e){
+                    //
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("", databaseError.getMessage());
+            }
+        };
+
+        shoppingListsReference.addValueEventListener(fetchListsEventListener);
+    }
+    @Override
+    public void reactOnAnswer() {
+        Log.e("LOg", "react on answer");
+        answerListener = new ValueEventListener() {
+            @SuppressLint("CheckResult")
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                try {
+                    if (dataSnapshot.hasChildren()) {
+                        FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
+                                .map(dataSnapshot1 -> dataSnapshot1.getValue(Answer.class))
+                                .filter(Answer::getContent)
+                                .toList()
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(list -> addGuestsToList(list));
+
+
+                    }
+                }catch (Exception e){
+                    //skip
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //
+            }
+        };
+        answerReference.addValueEventListener(answerListener);
+    }
+
+    @Override
+    public void removeUnusedAnswers() {
+        answerReference.removeValue();
+    }
+
+    @Override
+    public void stopListen() {
+        try {
+            shoppingListsReference.removeEventListener(fetchListsEventListener);
+            answerReference.removeEventListener(answerListener);
+        }catch (NullPointerException e){
+            e.fillInStackTrace();
+        }
+    }
+
+    private void addingFinished(List<GoodsList> mainList){
+        switchOwners(mainList);
+        accountScreenView.getMainList().clear();
+        accountScreenView.getMainList().addAll(0, mainList);
+        accountScreenView.showProducts();
+        accountScreenView.refreshList();
+    }
+    private List<GoodsList> flipList(List<GoodsList> oldList){
+        List<GoodsList> newList = new ArrayList<>();
+        for(int i = oldList.size() - 1; i >= 0; i-- ){
+            newList.add(oldList.get(i));
+        }
+        Collections.sort(newList, new DateComparator());
+
+        return newList;
+    }
+    private void switchOwners(List<GoodsList>  mainList){
+        for (GoodsList list : mainList) {
+            if(!currentUserId.equals(list.getOwner().getId())){
+                list.isOwner = false;
             }
         }
-        else {
-            connectionReference.child(trashList.getConnectionId()).addValueEventListener(new ValueEventListener() {
+    }
+    private void addGuestsToList(List<Answer> answers){
+        int guestsLimit = 5;
+        for (Answer answer : answers) {
+            shoppingListsReference.child(answer.getListId()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    try {
-                        Connection connection = dataSnapshot.getValue(Connection.class);
-
-                        for(String guestId : connection.getGuestsList()){
-                            if(guestId.equals(currentUserId)){
-                                connection.getGuestsList().remove(guestId);
-                                connectionReference.child(trashList.getConnectionId()).setValue(connection);
-                                if(connection.getGuestsList().size() == 0){
-                                    connectionReference.child(connection.getId()).removeValue();
-                                    }
-                                    break;
-                                }
+                    GoodsList goodsList = dataSnapshot.getValue(GoodsList.class);
+                    goodsList = checkListInBuffer(goodsList);
+                    if (goodsList.getGuests() == null)
+                        goodsList.setGuests(new ArrayList<>());
+                    if (!checkPresentGuest(answer.getUserId(), goodsList.getGuests()) && goodsList.getGuests().size() < guestsLimit) {
+                        goodsList.getGuests().add(answer.getUserId());
+                        String connectionId = checkConnectionByListId(connectionBuffer, goodsList.getListId());
+                        if (!goodsList.getConnectionId().equals("")){
+                            connectionReference.child(goodsList.getConnectionId()).child("guestsList").setValue(goodsList.getGuests());
+                        } else if (!connectionId.equals("!")) {
+                            connectionReference.child(connectionId).child("guestsList").setValue(goodsList.getGuests());
+                        }else {
+                            uploadConnection(goodsList, answer);
                         }
-                    }catch (NullPointerException e){
-                        e.fillInStackTrace();
+                        shoppingListsReference.child(answer.getListId()).setValue(goodsList);
                     }
-                    connectionReference.child(trashList.getConnectionId()).removeEventListener(this);
+                    answerReference.child(answer.getAnswerId()).removeValue();
+                    shoppingListsReference.child(answer.getListId()).removeEventListener(this);
                 }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    //nothing to show
+                    shoppingListsReference.removeEventListener(this);
                 }
             });
         }
-        accountScreenView.getMainList().remove(0);
-        accountScreenView.refreshList();
     }
-    @Override
-    public void deleteList(int position) {
-        if(accountScreenView.getMainList().size() == 0)
+    private GoodsList checkListInBuffer(GoodsList goodsList) {
+        if(goodsListsBuffer.size() == 0){
+            goodsListsBuffer.add(goodsList);
+            return goodsList;
+        }
+        for (GoodsList previousList : goodsListsBuffer) {
+            if(previousList.getListId().equals(goodsList.getListId()))
+                return previousList;
+        }
+        goodsListsBuffer.add(goodsList);
+        return goodsList;
+    }
+    private String checkConnectionByListId(List<Connection> connections, String listId){
+        String notFound = "!";
+
+        if(listId.equals("") || connections.size() == 0)
+            return notFound;
+        for (Connection connection : connections){
+            if(connection.getListId().equals(listId))
+                return connection.getId();
+        }
+        return notFound;
+    }
+    private boolean checkPresentGuest(String id, List<String> guestsId){
+        try {
+            for (String currentId : guestsId) {
+                if (currentId.equals(id)) {
+                    return true;
+                }
+            }
+        }catch (NullPointerException e) {
+            //skip
+        }
+        return false;
+    }
+    private void uploadConnection(@NonNull GoodsList goodsList, Answer answer) {
+        if(goodsList.getConnectionId().equals("")) {
+            String id = connectionReference.push().getKey();
+            goodsList.setConnectionId(id);
+            Connection connection = new Connection(id, currentUserId, goodsList.getListId(), answer.getUserId());
+            shoppingListsReference.child(goodsList.getListId()).child("connectionId").setValue(id);
+            connectionReference.child(id).setValue(connection);
+            connectionBuffer.add(connection);
+        }
+    }
+    private void performDeleting(int position){
+
+        if (accountScreenView.getMainList().size() == 0)
             return;
+
         GoodsList trashList = accountScreenView.getMainList().get(position);
+
         if(trashList.isOwner) {
             try {
                 if(!trashList.getConnectionId().equals(""))
@@ -135,6 +288,12 @@ public class AccountPresenterImpl implements AccountPresenter{
             }
         }
         else {
+            for (String guestId : trashList.getGuests()) {
+                if(currentUserId.equals(guestId)) {
+                    trashList.getGuests().remove(guestId);
+                    shoppingListsReference.child(trashList.getListId()).setValue(trashList);
+                }
+            }
             connectionReference.child(trashList.getConnectionId()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -148,9 +307,9 @@ public class AccountPresenterImpl implements AccountPresenter{
                                 connectionReference.child(trashList.getConnectionId()).setValue(connection);
                                 if(connection.getGuestsList().size() == 0){
                                     connectionReference.child(connection.getId()).removeValue();
-                                    }
-                                    break;
                                 }
+                                break;
+                            }
                         }
 
                     }catch (NullPointerException e){
@@ -167,246 +326,6 @@ public class AccountPresenterImpl implements AccountPresenter{
         }
         accountScreenView.getMainList().remove(position);
         accountScreenView.refreshList();
-    }
-
-    @Override
-    public void renameList(String newName, String listId) {
-        DatabaseReference listNameReference = database.getReference("Shopping Lists").child(listId).child("title");
-        listNameReference.setValue(newName);
-
-    }
-
-    @Override
-    public void fetchLists() {
-        fetchListsEventListener = new ValueEventListener() {
-            @SuppressLint("CheckResult")
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                try {
-                    if (dataSnapshot.hasChildren()) {
-                        FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
-                                .map(dataSnapshot1 -> dataSnapshot1.getValue(GoodsList.class))
-                                .filter(list -> list != null)
-                                .filter(list -> list.getOwner().getId().equals(currentUserId))
-                                .toList()
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(
-                                        list -> {
-                                            accountScreenView.getMainList().clear();
-                                            accountScreenView.getMainList().addAll(0, list);
-                                            checkAndAddList(accountScreenView.getMainList());
-
-                                        });
-
-                    }
-                }catch (Exception e){
-                    //complete solution
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e("", databaseError.getMessage());
-            }
-        };
-
-        shoppingListsReference.addValueEventListener(fetchListsEventListener);
-    }
-    private void checkAndAddList(List<GoodsList> goodsLists){
-     addForeignListEventListener = new ValueEventListener() {
-            @SuppressLint("CheckResult")
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChildren()) {
-                    FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
-                            .map(dataSnapshot1 -> dataSnapshot1.getValue(Connection.class))
-                            .toList()
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(connections ->{
-                                for(Connection connection : connections){
-                                    for (String userId : connection.getGuestsList()){
-                                        if(userId.equals(currentUserId)){
-                                            shoppingListsReference.child(connection.getListId()).addValueEventListener(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                                    try {
-                                                        GoodsList goodsList = dataSnapshot.getValue(GoodsList.class);
-                                                        goodsList.isOwner = false;
-                                                        boolean alreadyPresent = false;
-                                                        for(GoodsList gl : goodsLists){
-                                                            if(gl.getListId().equals(goodsList.getListId())) {
-                                                                goodsLists.set(goodsLists.indexOf(gl), goodsList);
-                                                                alreadyPresent = true;
-                                                            }
-                                                        }
-                                                        if(!alreadyPresent)
-                                                            goodsLists.add(0, goodsList);
-
-
-                                                        accountScreenView.refreshList();
-                                                        shoppingListsReference.child(connection.getListId()).removeEventListener(this);
-                                                    }catch (NullPointerException e){
-                                                       //
-                                                    }
-                                                }
-
-                                                @Override
-                                                public void onCancelled(DatabaseError databaseError) {
-
-                                                }
-                                            });
-                                            break;
-                                        }
-                                    }
-                                }
-
-                            });
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e("", databaseError.getMessage());
-            }
-        };
-
-        connectionReference.addValueEventListener(addForeignListEventListener);
-    }
-    private void addingFinished(ArrayList<GoodsList> oldList){
-
-        accountScreenView.showProducts();
-
-    }
-    private List<GoodsList> flipList(List<GoodsList> oldList){
-        List<GoodsList> newList = new ArrayList<>();
-        for(int i = oldList.size() - 1; i >= 0; i-- ){
-            newList.add(oldList.get(i));
-        }
-        Collections.sort(newList, new DateComparator());
-
-        return newList;
-    }
-
-    @Override
-    public void reactOnAnswer() {
-        answerListener = new ValueEventListener() {
-            @SuppressLint("CheckResult")
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                try {
-                    if (dataSnapshot.hasChildren()) {
-                        FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
-                                .map(dataSnapshot1 -> dataSnapshot1.getValue(Answer.class))
-                                .filter(Answer::getContent)
-                                .toList()
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(list -> createConnections(list));
-                    }
-                }catch (Exception e){   
-                    //nothing
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                //nothing
-            }
-        };
-        answerReference.addValueEventListener(answerListener);
-    }
-
-    @Override
-    public void removeUnusedAnswers() {
-        answerReference.removeValue();
-    }
-
-    @Override
-    public void stopListen() {
-        try {
-            connectionReference.removeEventListener(addForeignListEventListener);
-            shoppingListsReference.removeEventListener(fetchListsEventListener);
-            answerReference.removeEventListener(answerListener);
-        }catch (NullPointerException e){
-            e.fillInStackTrace();
-        }
-    }
-
-    private void createConnections(List<Answer> answerList){
-        connectionReference.addValueEventListener( new ValueEventListener() {
-            @SuppressLint("CheckResult")
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                List<Connection> connectionList = new ArrayList<>();
-                boolean connectionsStorageAreEmpty = true;
-
-                if(dataSnapshot.hasChildren())
-                    connectionsStorageAreEmpty = false;
-
-                for(Answer answer : answerList){
-                    if(connectionsStorageAreEmpty){
-                        connectionList.add(uploadConnection(answer));
-                        connectionsStorageAreEmpty = false;
-                    }else {
-                        FireFlowableFactory.getFireFlowable(dataSnapshot.getChildren())
-                                .map(dataSnapshot1 -> dataSnapshot1.getValue(Connection.class))
-                                .toList()
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(list -> {
-                                    boolean doesAlreadyExist = false;
-                                    connectionList.addAll(list);
-                                    for(Connection connection : connectionList){
-                                        if(connection.getListId().equals(answer.getListId()) &&
-                                                checkPresentConnection(connection, connectionList)){
-                                            doesAlreadyExist = true;
-                                            if(connection.getGuestsList().size() <= 4){
-                                                boolean doesAlreadyPresent = false;
-                                                for(String guestId : connection.getGuestsList()){
-                                                    if(guestId.equals(answer.getUserId()))
-                                                        doesAlreadyPresent = true;
-                                                }
-                                                if(!doesAlreadyPresent) {
-                                                    connection.getGuestsList().add(answer.getUserId());
-                                                    connectionReference.child(connection.getId()).setValue(connection);
-                                                    return;
-                                                }
-                                            }else{
-                                                return;
-                                            }
-                                        }
-                                    }
-                                    if(!doesAlreadyExist) {
-                                        connectionList.add(uploadConnection(answer));
-                                    }
-                                });
-                    }
-                }
-                connectionReference.removeEventListener(this);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e("", databaseError.getMessage());
-            }
-        });
-    }
-    private Connection uploadConnection(Answer answer) {
-        String id = connectionReference.push().getKey();
-        Connection connection = new Connection(id, currentUserId, answer.getListId(), answer.getUserId());
-        database.getReference().child(CONNECTIONS_KEY).child(id).setValue(connection);
-        database.getReference().child(SHOPPING_LISTS_KEY).child(answer.getListId()).child("connectionId").setValue(id);
-        return connection;
-    }
-    private boolean checkPresentConnection(Connection connection, List<Connection> connectionList){
-        for(Connection certainConnect : connectionList){
-            if(certainConnect.getListId().equals(connection.getListId()))
-                return true;
-        }
-        return false;
     }
 }
 

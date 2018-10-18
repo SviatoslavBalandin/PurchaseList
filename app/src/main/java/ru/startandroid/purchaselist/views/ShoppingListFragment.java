@@ -75,6 +75,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListView {
     private boolean prefIsQuantity;
     private boolean prefIsPrice;
     private boolean prefIsCheckable;
+    private boolean prefIsNotIgnoreMarked;
     private MainViewInterface mainView;
     private AppCompatActivity activity;
     private GoodsList parentReference;
@@ -125,6 +126,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListView {
         prefIsQuantity = getMainPreferences().getBoolean("show_quant", false);
         prefIsPrice = getMainPreferences().getBoolean("show_price", false);
         prefIsCheckable = getMainPreferences().getBoolean("markable", false);
+        prefIsNotIgnoreMarked = getMainPreferences().getBoolean("ignore_marked", false);
         checkPrefAboutFooter(prefIsQuantity, prefIsPrice);
         new ItemTouchHelper(initItemTouchHelperSimpleCallback()).attachToRecyclerView(recyclerListOfGoods);
         return v;
@@ -167,7 +169,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListView {
         else if(prefIsQuantity && prefIsPrice)
             countType = 3;
 
-        if(prefIsCheckable)
+        if(prefIsCheckable && prefIsNotIgnoreMarked)
             isCheckable = true;
 
         footerContent.setText(String.valueOf(presenter.countAmount(countType, isCheckable)));
@@ -222,6 +224,7 @@ public class ShoppingListFragment extends Fragment implements ShoppingListView {
         return !parentReference.getConnectionId().equals("");
     }
 
+    @SuppressLint("ApplySharedPref")
     private Toolbar.OnMenuItemClickListener initMenuItemClickListener(){
         return item -> {
             switch (item.getItemId()){

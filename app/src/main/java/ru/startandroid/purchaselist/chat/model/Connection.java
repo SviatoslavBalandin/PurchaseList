@@ -16,9 +16,7 @@ public class Connection {
     private String listId;
     private List<String> guestsList;
 
-    public Connection(){
-        guestsList = new ArrayList<>();
-    }
+    public Connection(){}
 
     public Connection(String id, String ownerId, String listId, String firstGuestId){
         this.id = id;
@@ -49,11 +47,6 @@ public class Connection {
 
     public void setList(String listId) {
         this.listId = listId;
-    }
-
-    public void setOwnerId(String ownerId) {
-
-        this.ownerId = ownerId;
     }
 
     public void setId(String id) {

@@ -1,16 +1,21 @@
 package ru.startandroid.purchaselist.views;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -19,13 +24,14 @@ import butterknife.OnClick;
 import ru.startandroid.purchaselist.MyApp;
 import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.di.AuthModule;
+import ru.startandroid.purchaselist.model.UserInformation;
 import ru.startandroid.purchaselist.presenters.AuthPresenter;
 
 /**
  * Created by user on 12/10/2017.
  */
 
-public class AuthenticationFragment extends Fragment implements ScreenView {
+public class AuthenticationFragment extends Fragment implements AuthenticationFragmentInterface {
 
     @Inject
     AuthPresenter presenter;
@@ -37,14 +43,16 @@ public class AuthenticationFragment extends Fragment implements ScreenView {
     @BindView(R.id.etUserName) EditText etUserName;
 
     private MainViewInterface mainView;
+    private List<UserInformation> usersData;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-       View v  = inflater.inflate(R.layout.email_password, null);
+        View v  = inflater.inflate(R.layout.email_password, null);
         ButterKnife.bind(this, v);
-        mainView = (MainViewInterface) getActivity();
         resolveDependencies();
+        mainView = (MainViewInterface) getActivity();
+        usersData = mainView.getUsersData();
         return v;
     }
     private void resolveDependencies(){
@@ -53,17 +61,15 @@ public class AuthenticationFragment extends Fragment implements ScreenView {
 
     @OnClick(R.id.btnLogUp)
     public void logUp() {
+        Log.e("LOg", "(up)names list size: " + mainView.getUsersData().size());
         presenter.signUp(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
     }
     @OnClick(R.id.btnLogIn)
     public void logIn(){
+        Log.e("LOg", "names list size: " + mainView.getUsersData().size());
        presenter.logIn(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
-    }
-    @Override
-    public void showReport(String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
     @Override
     public void showErrorMessage(String key) {
@@ -83,6 +89,12 @@ public class AuthenticationFragment extends Fragment implements ScreenView {
                 break;
         }
     }
+
+    @Override
+    public List<UserInformation> getUsersData() {
+        return usersData;
+    }
+
     public SharedPreferences getPreferences(){
         return mainView.getPrivatePreferences();
     }

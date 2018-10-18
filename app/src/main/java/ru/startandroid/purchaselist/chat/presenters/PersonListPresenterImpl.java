@@ -14,10 +14,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import ru.startandroid.purchaselist.chat.model.Connection;
 import ru.startandroid.purchaselist.chat.model.Invitation;
 import ru.startandroid.purchaselist.chat.view.PeopleViewInterface;
 import ru.startandroid.purchaselist.model.UserInformation;
@@ -36,17 +38,19 @@ public class PersonListPresenterImpl implements PersonListPresenter {
     private static final String USERS_KEY = "Users";
     private  SimpleDateFormat sdf;
 
+
+
     public PersonListPresenterImpl(FirebaseDatabase database, FirebaseAuth auth, PeopleViewInterface peopleView) {
         this.database = database;
         this.auth = auth;
         this.peopleView = peopleView;
         usersReference = database.getReference().child(USERS_KEY);
-        sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm a");
+        sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm a", Locale.GERMANY);
     }
 
     @SuppressLint("CheckResult")
     @Override
-    public void fetchPersons(boolean onCreateView) {
+    public void fetchPersons() {
         usersReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -59,6 +63,7 @@ public class PersonListPresenterImpl implements PersonListPresenter {
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(peopleList -> {
+                                Log.e("peopleTry", "fetch persons");
                                 peopleView.getStaticPeopleList().addAll(peopleList);
                                 peopleView.getPeopleList().addAll(peopleList);
                                 peopleView.refreshList();
@@ -74,17 +79,14 @@ public class PersonListPresenterImpl implements PersonListPresenter {
                 Log.e("", databaseError.getMessage());
             }
         });
-
     }
 
     @Override
-    public int invitePersons(List<UserInformation> invitedPersons) {
+    public void invitePersons(List<UserInformation> invitedPersons) {
         String INVITATIONS_KEY = "invitations";
         String CURRENT_USER_NAME = "current user name";
         String  time = sdf.format(Calendar.getInstance().getTime());
 
-        if (invitedPersons.size() == 0)
-            return 0;
         //handle users
         for (UserInformation user : invitedPersons) {
             //find each user invitations reference
@@ -97,11 +99,10 @@ public class PersonListPresenterImpl implements PersonListPresenter {
                     peopleView.getPreferences().getString("listId", ""),
                     peopleView.getPreferences().getString("listTitle", ""),
                     time);
-            //put in this reference our invitation
+            //put invitation in this reference
             invitationReference.child(invitationId).setValue(invitation);
 
         }
-        return invitedPersons.size();
     }
 
     @Override
@@ -123,6 +124,15 @@ public class PersonListPresenterImpl implements PersonListPresenter {
     public boolean checkPerson(int position) {
         for (UserInformation info : peopleView.getInvitedPersonsList()){
             if(info.getId().equals(peopleView.getPeopleList().get(position).getId()))
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean checkInvitedPerson(int position) {
+        for(String guestId : peopleView.getGuests()){
+            if(guestId.equals(peopleView.getPeopleList().get(position).getId()))
                 return true;
         }
         return false;

@@ -4,6 +4,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import dagger.Module;
 import dagger.Provides;
+import ru.startandroid.purchaselist.di.annotations.PerFragment;
 import ru.startandroid.purchaselist.presenters.ShoppingListPresenter;
 import ru.startandroid.purchaselist.presenters.ShoppingListPresenterImpl;
 import ru.startandroid.purchaselist.views.ShoppingListView;
@@ -19,6 +20,8 @@ public class GoodsListModule {
     public GoodsListModule(ShoppingListView shoppingListView){
         this.shoppingListView = shoppingListView;
     }
+
+    @PerFragment
     @Provides
     public ShoppingListPresenter getShoppingListPresenter(FirebaseDatabase database){
 

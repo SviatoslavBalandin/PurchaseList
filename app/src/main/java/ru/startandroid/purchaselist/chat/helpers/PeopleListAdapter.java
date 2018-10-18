@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -42,16 +41,20 @@ public class PeopleListAdapter extends RecyclerView.Adapter<PeopleListAdapter.Vi
 
         holder.nickNameTv.setText(peopleList.get(position).getName());
 
-        if(peopleView.checkPerson(position))
+        if(peopleView.checkPerson(position)) {
             holder.peopleListItemCheckBox.setChecked(true);
-        else
+        }
+        else {
             holder.peopleListItemCheckBox.setChecked(false);
+
+        }
     }
 
     @Override
     public int getItemCount() {
         return peopleList == null ? 0 : peopleList.size();
     }
+
     public void setFilter(List<UserInformation> newPeopleList){
         peopleList.clear();
         peopleList.addAll(newPeopleList);

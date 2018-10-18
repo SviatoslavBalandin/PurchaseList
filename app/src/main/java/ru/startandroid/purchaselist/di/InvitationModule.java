@@ -5,6 +5,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import dagger.Module;
 import dagger.Provides;
+import ru.startandroid.purchaselist.di.annotations.PerFragment;
 import ru.startandroid.purchaselist.presenters.InvitationListPresenter;
 import ru.startandroid.purchaselist.presenters.InvitationListPresenterImpl;
 import ru.startandroid.purchaselist.views.InvitationListViewInterface;
@@ -20,6 +21,8 @@ public class InvitationModule {
     public InvitationModule(InvitationListViewInterface invitationListView){
         this.invitationListView = invitationListView;
     }
+
+    @PerFragment
     @Provides
     public InvitationListPresenter provideInvitationListPresenter(FirebaseDatabase database, FirebaseAuth auth){
         return new InvitationListPresenterImpl(database, auth, invitationListView);
