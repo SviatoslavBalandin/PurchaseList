@@ -11,9 +11,6 @@ import ru.startandroid.purchaselist.presenters.AccountPresenterImpl;
 import ru.startandroid.purchaselist.views.AccountScreenView;
 import ru.startandroid.purchaselist.views.helpers.MainListAdapter;
 
-/**
- * Created by user on 19/11/2017.
- */
 @Module
 public class AccountMainListModule {
 

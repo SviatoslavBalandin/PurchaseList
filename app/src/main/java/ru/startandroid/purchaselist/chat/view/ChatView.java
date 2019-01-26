@@ -38,10 +38,6 @@ import ru.startandroid.purchaselist.views.MainViewInterface;
 import ru.startandroid.purchaselist.views.helpers.AlarmDialog;
 import ru.startandroid.purchaselist.views.helpers.AlarmOnClickListener;
 
-/**
- * Created by user on 16/03/2018.
- */
-
 public class ChatView extends Fragment implements ChatViewInterface, AlarmOnClickListener {
 
     @Inject
@@ -117,7 +113,7 @@ public class ChatView extends Fragment implements ChatViewInterface, AlarmOnClic
 
     @Override
     public SharedPreferences getPreferences() {
-        return chatRootFragment == null ? null : chatRootFragment.getPrivatePreferences();
+        return chatRootFragment == null ? null : chatRootFragment.getMainPreferences();
     }
 
     @Override

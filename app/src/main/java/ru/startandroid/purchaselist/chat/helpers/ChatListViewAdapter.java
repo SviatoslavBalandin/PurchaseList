@@ -19,10 +19,6 @@ import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.chat.model.Message;
 import ru.startandroid.purchaselist.chat.view.ChatViewInterface;
 
-/**
- * Created by user on 22/03/2018.
- */
-
 public class ChatListViewAdapter extends RecyclerView.Adapter<ChatListViewAdapter.ChatListViewHolder> {
 
     private List<Message> messageList;

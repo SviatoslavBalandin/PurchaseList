@@ -14,10 +14,6 @@ import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.chat.view.PermissionViewInterface;
 import ru.startandroid.purchaselist.model.UserInformation;
 
-/**
- * Created by user on 10/04/2018.
- */
-
 public class PermissionAdapter extends RecyclerView.Adapter<PermissionAdapter.ViewHolder>  {
 
     private List<UserInformation> dialogUsers;

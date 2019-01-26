@@ -21,10 +21,6 @@ import ru.startandroid.purchaselist.model.GoodsList;
 import ru.startandroid.purchaselist.views.MainViewInterface;
 import ru.startandroid.purchaselist.views.ShoppingListFragment;
 
-/**
- * Created by user on 22/03/2018.
- */
-
 public class ChatRootFragment extends Fragment implements ChatRootFragmentInterface {
 
     @BindView(R.id.chatFragmentTabLayout)

@@ -1,12 +1,8 @@
 package ru.startandroid.purchaselist.chat.helpers;
 
-/**
- * Created by user on 29/03/2018.
- */
-
 public class Counter {
 
-    private int maxValue = 0;
+    private int maxValue;
     private int countValue = 0;
 
     public Counter(int maxValue){

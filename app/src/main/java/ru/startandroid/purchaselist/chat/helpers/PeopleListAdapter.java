@@ -15,10 +15,6 @@ import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.chat.view.PeopleViewInterface;
 import ru.startandroid.purchaselist.model.UserInformation;
 
-/**
- * Created by user on 28/03/2018.
- */
-
 public class PeopleListAdapter extends RecyclerView.Adapter<PeopleListAdapter.ViewHolder>{
 
     private PeopleViewInterface peopleView;

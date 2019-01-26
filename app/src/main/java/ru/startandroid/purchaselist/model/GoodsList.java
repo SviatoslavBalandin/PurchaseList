@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by user on 05/02/2018.
- */
-
 public class GoodsList implements GoodsListInterface {
 
     private String date;

@@ -86,9 +86,6 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.MainLi
         public MainListViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            itemTitle = (TextView) itemView.findViewById(R.id.itemTitle);
-            itemDate = (TextView) itemView.findViewById(R.id.date);
-            quantityOnListTv = (TextView) itemView.findViewById(R.id.quantityOnListTv);
         }
     }
 

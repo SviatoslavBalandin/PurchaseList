@@ -30,7 +30,7 @@
         android:maxLength="36"
         android:textSize="24sp" />
 
-    <requestFocus></requestFocus>
+    <requestFocus/>
 
     <LinearLayout
         android:layout_width="match_parent"

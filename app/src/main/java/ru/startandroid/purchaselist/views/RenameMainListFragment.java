@@ -17,11 +17,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.presenters.ShoppingListPresenter;
-
-/**
- * Created by user on 23/11/2017.
- */
-
 public class RenameMainListFragment extends DialogFragment {
 
     @BindView(R.id.nameOfList) EditText nameOfList;

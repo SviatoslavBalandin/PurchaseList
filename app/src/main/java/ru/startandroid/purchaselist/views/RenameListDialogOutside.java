@@ -20,10 +20,6 @@ import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.model.GoodsList;
 import ru.startandroid.purchaselist.presenters.AccountPresenter;
 
-/**
- * Created by user on 11/04/2018.
- */
-
 public class RenameListDialogOutside extends DialogFragment {
 
     @BindView(R.id.nameOfList)

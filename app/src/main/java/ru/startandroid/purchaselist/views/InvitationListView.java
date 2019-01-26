@@ -33,10 +33,6 @@ import ru.startandroid.purchaselist.views.helpers.ClickListener;
 import ru.startandroid.purchaselist.views.helpers.InvitationListAdapter;
 import ru.startandroid.purchaselist.views.helpers.RecyclerItemClickListener;
 
-/**
- * Created by user on 26/03/2018.
- */
-
 public class InvitationListView extends Fragment implements InvitationListViewInterface, AlarmOnClickListener {
 
     @Inject

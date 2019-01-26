@@ -45,10 +45,6 @@ import ru.startandroid.purchaselist.views.helpers.ProductInfo;
 import ru.startandroid.purchaselist.views.helpers.PurchaseListRecyclerViewAdapter;
 import ru.startandroid.purchaselist.views.helpers.RecyclerItemClickListener;
 
-/**
- * Created by user on 04/02/2018.
- */
-
 public class ShoppingListFragment extends Fragment implements ShoppingListView {
 
     @Inject

@@ -17,10 +17,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.startandroid.purchaselist.R;
 
-/**
- * Created by user on 30/03/2018.
- */
-
 public class AlarmDialog extends DialogFragment {
 
     @BindView(R.id.alarmDialogTitle)

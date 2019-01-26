@@ -78,9 +78,6 @@ public class InvitationListAdapter extends RecyclerView.Adapter<InvitationListAd
      protected ViewHolder(View itemView) {
          super(itemView);
          ButterKnife.bind(this, itemView);
-
-         senderName = (TextView) itemView.findViewById(R.id.inviteSenderNameTv);
-         sendDate = (TextView) itemView.findViewById(R.id.dateInInvitation);
      }
  }
 }

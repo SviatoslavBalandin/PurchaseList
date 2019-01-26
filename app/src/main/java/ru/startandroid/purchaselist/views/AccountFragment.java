@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,6 @@ import ru.startandroid.purchaselist.MyApp;
 import ru.startandroid.purchaselist.R;
 import ru.startandroid.purchaselist.di.AccountMainListModule;
 import ru.startandroid.purchaselist.model.GoodsList;
-import ru.startandroid.purchaselist.model.UserInformation;
 import ru.startandroid.purchaselist.presenters.AccountPresenter;
 import ru.startandroid.purchaselist.views.helpers.AlarmDialog;
 import ru.startandroid.purchaselist.views.helpers.AlarmOnClickListener;
@@ -36,9 +34,6 @@ import ru.startandroid.purchaselist.views.helpers.RecyclerItemClickListener;
 import ru.startandroid.purchaselist.views.helpers.RenameDeleteDialog;
 import ru.startandroid.purchaselist.views.helpers.RenameDeleteDialogListener;
 
-/**
- * Created by user on 16/10/2017.
- */
 
 public class AccountFragment extends Fragment implements AccountScreenView, AlarmOnClickListener{
 
@@ -69,6 +64,7 @@ public class AccountFragment extends Fragment implements AccountScreenView, Alar
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mainActivity = (MainViewInterface) getActivity();
+
         toolbar.setNavigationIcon(R.drawable.ic_acc_nav3);
         toolbar.setNavigationOnClickListener(v -> mainActivity.showDrawer());
         recyclerViewMainList.setLayoutManager(new LinearLayoutManager(getActivity()));

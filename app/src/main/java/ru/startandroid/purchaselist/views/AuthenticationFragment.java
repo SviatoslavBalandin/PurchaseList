@@ -4,17 +4,13 @@ import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -61,13 +57,11 @@ public class AuthenticationFragment extends Fragment implements AuthenticationFr
 
     @OnClick(R.id.btnLogUp)
     public void logUp() {
-        Log.e("LOg", "(up)names list size: " + mainView.getUsersData().size());
         presenter.signUp(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
     }
     @OnClick(R.id.btnLogIn)
     public void logIn(){
-        Log.e("LOg", "names list size: " + mainView.getUsersData().size());
        presenter.logIn(etEmailAddress.getText().toString(), etPassword.getText().toString(),
                 etUserName.getText().toString(), getPreferences());
     }
